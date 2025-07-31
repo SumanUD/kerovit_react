@@ -1,0 +1,159 @@
+.career {
+    .btn-primary{
+        background: #003253;
+        text-align: center;
+        border-radius: 12px;
+        // width: 200px;
+        // margin: 0 auto;
+    }
+    .homebanner {
+        // background-image: url("/career/banner.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 45vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 3rem;
+        position: relative;
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 2%;
+            right: 1%;
+            font-size: 3rem;
+            color: white;
+            z-index: 99999;
+            // background: #25D366;
+            background: black;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            z-index: 9999;      
+            border-radius: 8px;
+            overflow: hidden;
+            svg{
+              height: 60%;
+            }
+            @media (max-width:750px){
+                right: 2% !important;
+            }
+          }
+
+        p {
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            font-size: 23.9733px;
+            color: #000000;
+            line-height: .8cap;
+        }
+
+        .bannerText {
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+        }
+    }
+
+    .belowbanner {        
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 36.3vh;
+        width: 100%;
+        // display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 3rem;
+        position: relative;
+
+        .belowBannerText {
+            img {
+
+                width: 200px;
+                margin-bottom: 20px;
+            }
+            
+            .mail {
+                font-size: 18px;
+                line-height: 5px;
+                color: #000;
+            }
+            
+
+            position: absolute;
+            left: 24%;
+            top: 14%;
+
+        }
+    }
+
+    .carrerText{
+        padding: 20px;
+        text-align: center;
+        color: #a2a2a2;
+    }
+
+    .below-banner-desktop{
+        display: none;
+    }
+}
+
+@media (min-width: 750px){
+    .career{
+        .homebanner{
+            height:clamp(250px, 100vh, 550px);    
+
+            p{
+                font-size: 35px !important;
+                margin-bottom: 22px;
+            }
+        }
+
+        .carrerText{
+            max-width: 1300px;
+            width: 100%;
+            margin: 45px auto;
+            p{
+                font-size: 18px !important;
+            }
+        }
+
+        .hide_on_desktop{
+            display: none;
+        }
+
+        .below-banner-desktop{
+            display: block !important;
+            max-width: 1300px;
+            width: 100%;
+            margin: 45px auto;
+            padding: 0 25px;
+            .belowbanner{
+                height: 600px;
+
+                .belowBannerText {
+                    img {
+        
+                        width: 260px;
+                        margin-bottom: 20px;
+                    }
+                    .mail {
+                        font-size: 27px;
+                        line-height: 5px;
+                        color: #000;        
+                    }
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        } 
+    }   
+}

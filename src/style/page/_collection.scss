@@ -1,0 +1,326 @@
+@import url('https://fonts.cdnfonts.com/css/sinkin-sans-400-regular');
+
+$black: #fff;
+$grey: #858282;
+$white: #fff;
+$primary-bg: #888686;
+$secondary-bg: #ffff;
+$tertiary-bg: #ffff;
+$active-color: yellow;
+
+
+.main-klassic-content {  
+  position: relative;
+  padding-bottom: 1px;
+  padding-top: 70px;
+
+  &.background-light{
+    background: linear-gradient(to bottom, $primary-bg 1%, $secondary-bg 18%, $tertiary-bg 100%);
+  }
+  &.background-dark{
+     background: linear-gradient(to bottom, #888686 0px, white 150px, white 100%);
+  }
+
+  .klassic {
+    .swiper-pagination-bullets {
+      display: none;
+    }
+    .view_on_desktop{
+      display:none !important;
+    }
+    .view_on_mobile{
+      .inside h2{
+        color: #000;
+      }
+      a{
+        height: 100%;
+        width: 100%;
+        img{
+          height: calc(100% + 15px);
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .klassic_slider {
+      margin: 30px 25px 50px 25px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      // align-items: center; // Ensures elements are centered
+
+      h2 {
+        text-transform:uppercase;
+        // text-decoration: underline;
+        margin-bottom: 20px;
+        color: white;        
+        font-family: 'Sinkin Sans 500 Medium', sans-serif;
+        font-size: 15.232px;
+      }
+
+      p {
+        font-family: 'Sinkin Sans 300 Light', sans-serif;
+        font-size: 9.825px;
+        line-height: 1.6;
+        color: #000;
+        // text-align: center;
+        max-width: 600px;
+      }
+
+      /* Swiper Styling */
+      .swiper {
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .inside {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        .inside_contents{
+          height: 100%;
+          position: relative;
+          img {                    
+            width: 100%;
+            height: calc(100% + 15px);
+          }
+          .inside_text_content{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding:25px 15px;
+            position: absolute;
+            bottom: 0;            
+            background: #000000;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6%, rgba(0, 0, 0, 0.69) 88%);
+
+            p{
+              color: white;
+              margin-bottom: 0;
+            }
+          }
+        }
+
+
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none !important;
+      }
+
+      /* Updated Button Styling */
+      button {
+        background-color: #fff;
+        border: 1px solid gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: #000;
+
+        font-family: 'Sinkin Sans 300 Light', sans-serif;
+        font-size: 10.129px;
+        width: 110px;
+        padding: 4px;
+
+        margin-top: 20px; // Pushes button below content
+        align-self: flex-end; // Ensures button stays centered
+
+        // &:hover {
+        //   background-color: #f4f4f4;
+        //   border-color: black;
+        // }
+
+        // &::after {
+        //   content: ""; 
+        //   display: inline-block;
+        //   width: 20px; // Adjust width as needed
+        //   height: 10px; // Adjust height as needed
+        //   background-image: url('/icons/right_arrow.png'); // Replace with actual image path
+        //   background-size: contain;
+        //   background-repeat: no-repeat;
+        //   margin-left: 5px; // Space between text and image
+        //   vertical-align: middle;
+        // }
+
+        .right_arrow {
+          margin-bottom: -1px;
+        }
+      }
+    }
+  }
+
+  .swiper_nav_buttons{    
+    width: 100%;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 25px;
+    margin-bottom: 45px;
+    button{
+      margin: 25px 0;
+      height: 50px !important;
+      width: 50px !important;
+      align-self: 1/1;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid black;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main-klassic-content {
+    padding: 100px 60px 40px;
+
+    .klassic {
+      .view_on_desktop{
+        display: block !important;
+      }
+      .view_on_mobile{
+        display: none !important;        
+      }
+      .klassic_slider {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        .swiper {
+          margin-top: 30px;
+          width: 100%;
+        }
+
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: stretch;
+
+          height: clamp(450px, 42vw, 520px);
+          aspect-ratio: 1/1;
+        }
+
+        .inside {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          padding: 15px;
+          margin: auto;
+
+          .inside_contents{
+            .inside_text_content{
+              
+              transition: all .4s ease;
+            }
+            .inside_text_content{
+              height: calc(100% + 15px);
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              padding: 50px 25px;
+              bottom: -80px;                  
+              position: absolute;                  
+              background: #000000;
+              background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6%, rgba(0, 0, 0, 0.69) 88%);
+              // transition: all .4s ease;
+  
+              p{
+                color: white;
+                margin-bottom: 0;              
+                transition: all .3s ease;
+              }
+  
+              &:hover{
+                bottom: -15px;
+  
+                p{
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
+          h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+          }
+
+
+          p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0;
+          }
+
+          img {
+            width: 100%;
+            object-fit: cover;            
+          }
+        }
+
+        button {
+          align-self: flex-end;
+          margin-top: 30px;
+          width: 120px;
+          padding: 6px 10px;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          border: 1px solid gray;
+          background-color: #fff;
+          color: #000;
+          font-family: 'Sinkin Sans 300 Light', sans-serif;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          .right_arrow {
+            margin-bottom: -1px;
+          }
+
+          &:hover {
+            background-color: #f4f4f4;
+            border-color: black;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+.klassic-header {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 0 20px;
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 10px;
+    color: #000;
+  }
+
+  p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    // color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}

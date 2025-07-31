@@ -1,0 +1,242 @@
+.latestPost {
+  display: flex;
+  flex-direction: column;
+  // background: linear-gradient(to bottom, rgb(223, 223, 223) 0%, rgb(255, 255, 255) 100%);
+  color: #000;
+  position: relative;
+
+  .latestPost_contents {
+    max-width: 1300px;
+    width: 100%;
+    margin: 70px auto;
+    padding: 0 25px;
+  }
+
+  .content {
+    margin: clamp(2rem, 5vw, 3rem) 0 0 0;
+
+    .title {
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      font-family: 'Sinkin Sans 500 Medium', sans-serif;
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      line-height: 1.6;
+      color: #000;
+      font-family: 'Sinkin Sans 300 Light', sans-serif;
+      margin-bottom: 35px;
+    }
+  }
+
+  .filterContainer {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+
+    .filterTop {
+      width: 100%;
+      border-top: 1px solid #867e7e;
+      border-bottom: 1px solid #867e7e;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 40px;
+      cursor: pointer;
+
+      .filterIcon {
+        font-size: 20px;
+        margin-left: 15px;
+        color: #000;
+      }
+
+      .selected-date {
+        margin-left: 25px;
+        font-size: 12px;
+        color: #333;
+        font-weight: 500;
+        font-family: 'Sinkin Sans 500 Medium', sans-serif;
+      }
+    }
+
+ .filterDropdown {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .filterSection {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+
+    h4 {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #000;
+      font-family: 'Sinkin Sans 500 Medium', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+
+      li {
+        font-size: 12px;
+        padding: 6px 8px;
+        background: #f0f0f0;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-family: 'Sinkin Sans 300 Light', sans-serif;
+
+        &:hover {
+          background: #ddd;
+        }
+
+        &.selected {
+          font-weight: bold;
+          background: #ccc;
+        }
+      }
+    }
+  }
+
+  .clearFilterBtn {
+    align-self: flex-start;
+    background: #003253;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Sinkin Sans 500 Medium', sans-serif;
+
+    &:hover {
+      background: #002842;
+    }
+  }
+}
+
+
+    &:has(.filterDropdown) ~ * {
+      filter: blur(5px);
+      pointer-events: none;
+    }
+  }
+
+  .container {
+    margin: 50px auto;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  // Blog Card Layout
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .blog-card-img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .blog-card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .blog-title {
+        font-size: 1.4rem;
+        font-family: 'Sinkin Sans 600 SemiBold', sans-serif;
+        color: #000;
+        margin-bottom: 10px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .blog-date-text {
+        font-size: 0.875rem;
+        font-family: 'Sinkin Sans 500 Medium', sans-serif;
+        color: #777;
+        margin-bottom: 15px;
+      }
+
+      .blog-desc {
+        font-size: 1rem;
+        font-family: 'Sinkin Sans 300 Light', sans-serif;
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .read-more {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #000;
+        font-family: 'Sinkin Sans 500 Medium', sans-serif;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .filterDropdown {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}

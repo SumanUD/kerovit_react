@@ -1,0 +1,87 @@
+
+
+@use './style/utilities';
+@use './style/variables' as v;
+@use './style/typography';
+@use './style/page/home';
+@use './style/page/categories';
+@use './style/page/collection';
+@use './style/page/productListing';
+@use './style/page/productSingle';
+@use './style/page/locateOurStore';
+@use './style/page/about';
+@use './style/page/career';
+@use './style/page/blogs';
+@use './style/page/latestPost';
+@use './style/page/catelogue';
+@use './style/page/error';
+@use './style/page/customerCare';
+@use "./style/page/warranty";
+
+@use './style/components/header';
+@use './style/components/footer';
+@use './style/components/storeCard';
+@use './style/skeletonLoading';
+@use './style/components/loader';
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+    font-family: 'Sinkin Sans', sans-serif !important;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+a{
+    text-decoration: none !important;
+}
+
+.btn-primary-dark{
+    background: transparent;
+    font-size: .9rem;
+    padding: 12px 18px;
+    color: v.$primary;
+    border: 1px solid v.$primary;
+    width: fit-content;
+    margin: 0 auto;
+    &:focus{
+        outline: none;
+    }
+}
+.btn-primary{
+    background: transparent;
+    font-size: .9rem;
+    padding: 12px 18px;
+    color: white;
+    border: 1px solid white;
+    &:focus{
+        outline: none;
+    }
+}
+.whatsapp-icon {
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    font-size: 3rem;
+    color: white;
+    z-index: 99999;
+    background: black;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    z-index: 9999;      
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    svg{
+      height: 60%;
+    }
+    @media (max-width:750px){
+        right: 2% !important;
+    }
+}
+
+
+

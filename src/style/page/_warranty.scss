@@ -1,0 +1,177 @@
+.warranty  {
+    .banner{
+        background-image: url("/warranty/banner.png");
+        background-size: cover;
+        background-position: 50% 40%;
+        background-repeat: no-repeat;
+        height: 70vh;
+        width: 100%;
+        align-items: center;
+    
+        @media (width < 800px){
+          background-position: 90% 0;
+          height: 70vh;          
+        }
+
+        .banner_content{
+          margin: 0px 40px 0 40px;
+    
+          .banner_title{
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            font-size: 15.232px;
+            padding-top: 80px;
+            margin-bottom: 20px;
+          }
+          p{
+            font-size: 14px;
+            line-height: 1.6;
+            // color: #a4a4a4;
+            font-family: 'Sinkin Sans 300 Light', sans-serif;
+            font-size: 9.854px;
+          }
+
+          .warrantySecondP {
+            width: 150px;
+          }
+
+          @media (width > 800px){
+            max-width: 600px;
+            width: 100%;
+            margin: 0px 40px 0 40px;
+            padding-top: 60px;
+          }
+        }
+    
+      }
+
+      .warranty-form-container {
+        // max-width: 1000px;
+        // margin: 2rem auto;
+        padding: 1rem;
+        font-family: Arial, sans-serif;
+
+        .below-warranty-banner {
+          background-image: url("/warranty/warr-below-banner.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          width: 100%;
+          height: 600px;
+          margin-bottom: 50px;
+
+        }
+    
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+    
+        .activate-btn {
+            background-color: #0066d6;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+    
+        .warranty-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            width: 80%;
+            margin-left: 10%;
+    
+            label {
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                color: #222;
+    
+                input,
+                select {
+                    margin-top: 4px;
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid #999;
+                    font-size: 14px;
+                    outline: none;
+    
+                    &:focus {
+                        border-bottom: 2px solid #0066d6;
+                    }
+                }
+    
+                select {
+                    border: 1px solid #999;
+                    border-radius: 4px;
+                    padding: 10px;
+                    background-color: #fff;
+                    cursor: pointer;
+                }
+            }
+    
+            .submit-btn {
+                background-color: #0066d6;
+                color: #fff;
+                border: none;
+                border-radius: 20px;
+                padding: 10px 20px;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+  .warranty{
+    .banner{
+      height: 100vh !important;
+      .banner_content{
+          margin: 0px 40px 0 40px;
+  
+        .banner_title{
+          font-size: 27px !important;
+
+        }
+        p{
+          font-size: 15px !important;
+
+        }
+      }
+  
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .warranty-form-container {
+
+    .below-warranty-banner {
+    height: 200px !important;
+
+      .text {
+        max-width: 400px !important;
+        width: 100%;
+        padding: 20px !important;
+        color: #fff;
+        p{
+          width: 200px;
+        }
+      }
+    }
+  }
+
+}

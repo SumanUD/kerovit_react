@@ -1,0 +1,454 @@
+.store {
+    .banner {
+        background-image: url("/locateStoreMainBanner.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 35vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 3rem;
+        position: relative;
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 2%;
+            right: 1%;
+            font-size: 3rem;
+            color: white;
+            z-index: 99999;
+            background:black;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            z-index: 9999;      
+            border-radius: 8px;
+            overflow: hidden;
+            svg{
+              height: 60%;
+            }
+            @media (max-width:750px){
+                right: 2% !important;
+            }
+          }
+
+        h2,
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f1e6e6;
+            letter-spacing: 3px;
+
+        }
+
+        h1 {
+            letter-spacing: 5px;
+        }
+
+        .bannerText {
+            position: absolute;
+            top: 62%;
+            left: 24%;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+
+            .h2second {
+                color: #fff;
+                // font-family: 'Sinkin Sans 300 Medium', sans-serif;
+            }
+
+
+        }
+        .store-locator-box {
+            position: absolute;
+            top: 60%;
+            right: 15%;
+            transform: translateY(-50%);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-width: 280px;
+          
+            .search-bar {
+              display: flex;
+              align-items: center;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              backdrop-filter: blur(8px);
+              border-radius: 4px;
+          
+              input {
+                flex: 1;
+                background: transparent;
+                border: none;
+                color: white;
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+          
+                &::placeholder {
+                  color: white;
+                  opacity: 0.8;
+                }
+          
+                &:focus {
+                  outline: none;
+                }
+              }
+          
+              .search-btn {
+                background: transparent;
+                border: none;
+                color: white;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                cursor: pointer;
+                .search-error{
+                    display: inline-block;
+                    margin-right: 12px;
+                    color: crimson;
+                    font-size: 12px;
+                }
+              }
+            }
+          
+            .divider {
+              border: none;
+              height: 1px;
+              background-color: rgba(255, 255, 255, 0.25);
+              margin: 0.5rem 0;
+            }
+          
+            .dropdown {
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(8px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              color: white;
+              padding: 0.8rem 1rem;
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-radius: 4px;
+          
+              option {
+                background: #222;
+                color: white;
+              }
+          
+              &:focus {
+                outline: none;
+              }
+            }
+          
+            .submit-btn {
+              background-color: #2e5c85;
+              color: white;
+              padding: 0.85rem;
+              border: none;
+              border-radius: 4px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.8px;
+              cursor: pointer;
+              transition: background 0.3s ease;
+          
+              &:hover {
+                background-color: #244a6b;
+              }
+            }
+          }
+    }
+
+    @media (max-width: 768px) {
+        .banner{
+            height: 70vh;
+            .bannerText {
+                top: 20%
+            }
+        }
+
+        .store-locator-box {
+          position: absolute;
+          top: unset;
+          bottom: 5%;
+          right: 7% !important;
+          transform: translateX(50%);
+          padding: 1.5rem;
+          width: 90%;
+          max-width: 360px;
+      
+          .search-bar {
+            input {
+              padding: 0.6rem 0.8rem;
+              font-size: 0.8rem;
+            }
+      
+            .search-btn {
+              padding: 0.6rem 0.8rem;
+              font-size: 0.95rem;
+            }
+          }
+      
+          .dropdown {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.8rem;
+          }
+      
+          .submit-btn {
+            padding: 0.7rem;
+            font-size: 0.85rem;
+            width: 100%;
+          }
+        }
+      }
+      
+
+    .store-form-container {
+        max-width: 500px;
+        margin: 60px auto;
+        padding: 0 20px;
+
+        h2{
+            margin-bottom: 25px;
+        }
+
+        .store-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    font-size: 14px;
+                    margin-bottom: 4px;
+                    font-weight: 400;
+                }
+
+                input,
+                select,
+                textarea {
+                    border: none;
+                    border-bottom: 1px solid #999;                    
+                    padding: 5px 4px 2px;
+                    font-size: 18px;
+                    outline: none;
+                    font-family: inherit;
+                    font-weight: 300;
+
+                    &:focus {
+                        border-bottom: 1px solid #999;
+                    }
+                }
+
+                select,
+                textarea {
+                    border: none;
+                    border-bottom: 1px solid #999;
+                    border-radius: 0;
+                    padding: 10px 4px 2px;                    
+                }
+
+                textarea {
+                    resize: vertical;
+                    min-height: 100px;
+                    color: #000;
+                }
+            }
+
+            .submit-btn {
+                width: 120px;
+                background-color: #0057d8;
+                color: #fff;
+                border: none;
+                border-radius: 25px;
+                padding: 6px 0;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #0044aa;
+                }
+            }
+        }
+    }
+
+    
+    @media (min-width:1024px){
+        .banner{
+            height:clamp(250px, 100vh, 550px);    
+            background-size: cover;
+
+            .bannerText{
+                top: 40%;
+                left: 10%;
+            }
+        }
+
+        .store-main-contents{            
+            display: grid;
+            grid-template-columns: 1fr;            
+            column-gap: 30px;
+            max-width: 1300px;
+            width: 100%;
+            margin: 45px auto;            
+
+            .store-form-container{
+                height: fit-content;                
+                // position: sticky;
+                // top: 120px;
+
+                max-width: 700px;
+                width: 100%;
+                margin-top: 70px;     
+                
+                h2{
+                    font-size: 2.5rem;
+                    font-weight: 400 !important;
+                    width: fit-content;
+                    margin: 0 auto 25px;
+                    color: #27435e;
+                }
+            }
+
+
+            .location-list{
+                .store-card{
+                    position: relative;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    column-gap: 40px;  
+                    padding-top: 90px;   
+                    overflow: hidden;    
+
+                    .store-images{
+                        width: 100%;
+                        padding-top: 45px;
+
+                        .storeHeader{
+                            margin-bottom: 25px;
+                            position: absolute;
+                            left: 50%;
+                            top: 45px;
+                            transform: translateX(-50%);
+
+                            h2{
+                                display: inline-block;
+                                margin: 0;
+                                font-weight: 800;
+                            }
+                            &.text-header{
+                                width: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 12px;
+                                color: #003253;
+                            }
+                        }
+                    }
+                    .location_swiper{
+                        width: 100%;
+                        height: 100%;
+                        padding: 80px 0;
+                        cursor: grab;
+                        user-select: none; /* Prevent text selection while dragging */
+                        &:active {
+                            cursor: grabbing; /* Change to grabbing when clicked */
+                        }
+                    }
+                    .store-text-contents{
+                        text-align: start;
+
+                        .desc{
+                            font-size: 13px;     
+                            margin-bottom: 1.5rem;                                                   
+                        }
+
+                        .store-info{
+                            color: #003253;
+                            .store-name{
+                                color: #003253;
+                                font-size: 1.8rem;
+                                margin-bottom: .5rem;
+                            }
+                            .owner-name{
+                                font-size: 1.2rem;
+                                margin-bottom: .5rem;
+                            }
+                            .store-details{
+                                color: #003253;
+                                font-size: .9rem;
+                                font-weight: 900;
+                                margin-bottom: 1rem;
+                            }
+                            .store-phone a {
+                                color: #003253;
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .all-location-list{
+        padding: 25px 25px;
+        .grid-items{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;                    
+            padding: 25px 0;
+            .card{
+                padding: 16px;
+                flex-direction: column;
+                color: #888;
+                line-height: 1.2;
+                .direction-btn {
+                    width: 200px;
+                    justify-content: center;
+                    background-color: #003253;
+                    color: #fff;
+                    border: none;
+                    padding: 5px 0;
+                    font-size: 1.1rem;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    cursor: pointer;
+                    margin-top: 12px;
+
+                    .arrow-top-right {
+                        width: 15px;
+                    }
+                }
+                .name{
+                    color: #003253;
+                    font-size: clamp(1rem, 5vw, 1.8rem);
+                }
+                .person{
+                    color: black;
+                    font-size: clamp(.8rem, 3vw, 1.2rem);
+                }
+                svg{
+                    height: 20px;
+                    width: 20px;
+                    margin-right: 8px;
+                }
+            }
+        } 
+        
+    }
+}

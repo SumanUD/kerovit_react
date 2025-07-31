@@ -1,0 +1,837 @@
+.aboutus_main {
+
+    #Who_We_Are,
+    #Directors_Message,
+    #Manufacturing_Plants,
+    #Certification
+    {
+        scroll-margin-top: 120px;
+    }
+
+    .homebanner {                        
+        height: 400px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        // padding: 3rem;
+        position: relative;
+
+        .aboutus_video{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 2%;
+            right: 1%;
+            font-size: 3rem;
+            color: white;
+            z-index: 99999;
+            background: #25D366;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            z-index: 9999;      
+            border-radius: 8px;
+            overflow: hidden;
+            svg{
+              height: 60%;
+            }
+
+            @media (max-width:750px){
+                right: 2% !important;
+               
+            }
+          }
+
+        h2,
+        span {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 23.9733px;
+            color: #c7c3c3;
+
+        }
+
+        .bannerText {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+
+            .h2_second {
+                position: relative;
+                left: 35%;
+                display: ruby-text;
+                margin-top: -2px;
+                color: #777575;
+                font-size: 11.3774px;
+                font-size: 11.3774px;
+                // font-family: 'Sinkin Sans 300 Medium', sans-serif;
+            }
+
+            p {
+                text-align: center;
+                position: relative;
+                left: 0;
+                top: -27px;
+                font-family: 'Sinkin Sans 300 Light', sans-serif;
+                font-size: 9.854px;
+                color: #c7c3c3;
+                margin-left: 14px;
+
+
+            }
+
+            .bannerdescp {
+                width: 286px;
+                margin-top: 24px;
+            }
+
+            .line_image {
+                position: relative;
+                left: 50%;
+                height: 18px;
+                width: 2px;
+                top: -39px;
+            }
+        }
+    }
+
+    .belowbanner {
+        margin: 50px 25px 50px 25px;
+        text-align: center;
+
+        .whoWeAre{
+            display: grid;
+            grid-template-columns: 0fr 5fr;
+            column-gap: 172px;
+            align-items: center;
+            // margin-bottom: 45px;
+            p{
+                text-align: left;
+            }
+        }
+
+        h2 {
+            text-transform: uppercase;
+            // text-decoration: underline;
+            font-weight: 100;
+            font-size: 20px;
+            // margin-bottom: 20px;
+            // font-size: 15.232px;
+            // font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            color: #9b9b9b;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #000;
+            font-family: 'Sinkin Sans 300 Light', sans-serif;
+            font-size: 9.854px;
+        }
+        // .p1 {
+        //     margin-top: 50px;
+        // }
+
+        .read_more {
+            text-transform: capitalize;
+            background-color: white;
+            color: #000;
+            border: 0.5px solid #000;
+            width: 104px;
+            // padding: 8px 1px;
+            cursor: pointer;
+            // height: 26px;
+            font-size: 11px;
+            // font-weight: 400;
+            margin-top: 8px;
+            font-family: 'Sinkin Sans 300 Light', sans-serif;
+
+        }
+
+        .p3 {
+            text-align: left;
+        }
+
+        ul {
+            text-align: left;
+            li{
+                list-style-type: circle;
+            }
+        }
+        h4 {
+            text-transform: uppercase;
+            // text-decoration: underline;
+            font-weight: 100;
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            font-size: 14.232px;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            color: #9b9b9b;
+        }
+        .p2 {
+            text-align: left;
+        }
+
+        .one_close{
+            width: 70%; /* Adjust the width to control the number of visible characters */
+            overflow: hidden; /* Ensures that content outside the width is hidden */
+            white-space: nowrap; /* Prevents wrapping to the next line */
+            text-overflow: ellipsis;
+        }
+        .one_close_content{
+            display: none;
+        }
+
+        .belowBannerText {
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+
+            h2{
+                font-size: 63px !important;
+                font-family: 'Sinkin Sans 500 Medium', sans-serif !important;
+            }
+
+            .h2_second {
+                position: relative;
+                left: 23%;
+                display: ruby-text;
+                margin-top: -2px;
+                color: #777575;
+                p{
+                    text-transform: uppercase;
+                    position: relative;
+                    top: -10px;
+                    font-family: 'Sinkin Sans 500 Medium', sans-serif !important;
+                    font-size: 29px;
+                }
+                h2 {
+                    position: relative;
+                    left: -6px;
+                    top: 3px;
+                    font-size: 60px !important;
+                    font-family: 'Sinkin Sans 500 Medium', sans-serif !important;
+
+                }
+            }
+
+            p {
+                text-align: center;
+                // position: relative;
+                // left: -9%;
+                // top: -27px;
+                font-family: 'Sinkin Sans 300 Light', sans-serif;
+                font-size: 9.854px;
+                color: #c7c3c3;
+                margin-left: 14px;
+            }
+        }
+    }
+
+    .directorMessage {
+        img {
+            height: auto;
+            width: 100%;
+        }
+
+        .belowImageContent {
+            margin: 30px 0 50px;
+            padding: 0 10px;
+
+            text-align: center;
+
+            p {                
+                line-height: 1.6;
+                color: #000;
+                font-family: 'Sinkin Sans 300 Light', sans-serif;
+                font-size: 11px;
+                text-align: left;
+
+                @media (width < 800px){
+                    p.text-center{
+                        text-align: justify !important;
+                    }
+                }
+            }
+
+            .read_more {
+                text-transform: capitalize;
+                background-color: white;
+                color: #000;
+                border: 0.5px solid #000;
+                width: 104px;
+                // padding: 8px 1px;
+                cursor: pointer;
+                // height: 26px;
+                font-size: 11px;
+                // font-weight: 400;
+                // margin-top: 8px;
+                font-family: 'Sinkin Sans 300 Light', sans-serif;
+
+            }
+
+            .director_slogan{
+                margin: 15px 0;
+                font-family: 'Sinkin Sans 300 Light', sans-serif;
+
+            }
+            .two_close{
+                width: 70%; /* Adjust the width to control the number of visible characters */
+                overflow: hidden; /* Ensures that content outside the width is hidden */
+                white-space: nowrap; /* Prevents wrapping to the next line */
+                text-overflow: ellipsis;
+            }
+            .two_close_content{
+                display: none;
+            }
+
+        }
+
+    }
+
+    .manufacturingPlant {
+        position: relative;
+        padding: 0 20px;
+        margin: 0px 0px 50px 0px;
+
+        .disableOnMobile{
+            display: none;
+        }
+
+        .mpTitle {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 100;
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            font-size: 15.232px;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            color: #9b9b9b;
+        }
+
+        .swiper-pagination-bullets {
+            display: none;
+        }
+
+        h2 {
+            font-weight: 100;
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            font-size: 15.232px;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            color: #000;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #000;
+            font-family: 'Sinkin Sans 300 Light', sans-serif;            
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;                
+                transition: transform 0.3s ease-in-out;
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+
+                img {
+                    width: 100%;
+                    max-width: 1500px;
+                    height: 400px;
+                    object-fit: cover;
+                }
+
+            }
+        }
+
+        .prev-btn,
+        .next-btn {
+            position: absolute;
+            top: 37%;
+            transform: translateY(-50%);
+            background-color: #dbdbdb;
+            color: #fff;
+            border: none;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #555;
+            }
+            svg {
+                font-size: 30px;
+                color: #000;
+
+            }
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .swipeButton {
+            color: #000;
+            border: 0.5px solid #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;            
+            font-size: 13px;
+            padding-bottom: 4px;
+            float: right;
+            margin-right: 18px;
+            background-color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .read_more {
+                margin-top: -1px;
+            }
+        }
+
+    }
+
+    .certifications{
+        position: relative;
+        padding: 40px 20px;
+        margin: 0px 0px 50px 0px;
+
+        .disableOnMobile{
+            display: none;
+        }
+
+        .mpTitle {
+            text-transform: uppercase;
+            text-align: left;
+            font-weight: 100;
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            font-size: 15.232px;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            color: #9b9b9b;
+        }
+
+        .swiper-pagination-bullets {
+            display: none;
+        }
+
+        h2 {
+            font-weight: 100;
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            font-size: 15.232px;
+            font-family: 'Sinkin Sans 500 Medium', sans-serif;
+            color: #000;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #000;
+            font-family: 'Sinkin Sans 300 Light', sans-serif;
+            font-size: 9.854px;
+
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;                
+                transition: transform 0.3s ease-in-out;
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+
+                img {
+                    width: 100%;
+                    max-width: 1500px;
+                    height: auto;
+                }
+
+            }
+        }
+
+        .prev-btn-cert,
+        .next-btn-cert {
+            position: absolute;
+            top: 65%;
+            transform: translateY(-50%);
+            background-color: #dbdbdb;
+            color: #fff;
+            border: none;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #555;
+            svg {
+                color: #fff;
+            }
+
+            }
+            svg {
+                font-size: 30px;
+                color: #000;
+
+            }
+        }
+
+        .prev-btn-cert {
+            left: 10px;
+        }
+
+        .next-btn-cert {
+            right: 10px;
+        }
+
+
+        .swipeButton {
+            color: #000;
+            border: 0.5px solid #000;
+            width: 104px;
+            cursor: pointer;
+            height: 26px;
+            font-size: 13px;
+            padding-bottom: 4px;
+            float: right;
+            margin-right: 18px;
+            background-color: #fff;
+
+            .read_more {
+                margin-top: -1px;
+            }
+
+        }
+    }
+
+
+    @media (min-width :750px){
+        .homebanner{
+            position: relative;
+            height:clamp(500px, 100vh, 750px); 
+            
+            h2{
+                font-size: clamp(2rem, 3vw, 3rem);
+            }
+            
+            .bannerText{                         
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                .h2_second{
+                    font-size: clamp(1.5rem, 2.5vw, 2rem);                    
+                    right: 0;
+                }
+                .banner-title-center{
+                    max-width: 450px;
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                .bannerdescp{
+                    max-width: 650px;
+                    width: 100%;
+                    img{
+                        left: 50%;
+                        height: 25px;
+                    }
+                    p{
+                        font-size: .9rem;
+                        margin-left: 0px;  
+                        left: 0;                      
+                    }
+                }
+            }
+        }
+
+        .about-page-contents{
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+
+            .belowbanner{
+                p{
+                    font-size: .8rem;
+                    line-height: 1.5rem;
+                }
+
+                .read_more {
+                    text-transform: capitalize;
+                    background-color: white;
+                    color: #000;
+                    border: 0.5px solid #000;
+                    width: auto;
+                    padding: 6px 18px;
+                    cursor: pointer;
+                    // height: fit-content;
+                    font-size: 11px;
+                    font-family: 'Sinkin Sans 300 Light', sans-serif;
+
+                    // font-weight: 400;
+                    // margin-top: 8px;                    
+                }
+            }
+
+            .belowBannerText{
+                max-width: 130px;                
+                width: 100%;
+                margin:0 auto;
+                height: 100%;                
+                position: relative;             
+                display: flex;
+                flex-direction: column;    
+                align-items: flex-start;                                 
+                .h2_second{
+                    // position: unset;
+                    display: flex;
+                    // align-items: center;
+                    // justify-content: end;
+                    width: 100%;
+                    // column-gap: 12px;
+                    p{
+                        position: unset;         
+                        margin: 0;               
+                    }
+                    h2{
+                        position: unset;
+                        margin: 0;
+                        line-height: 1;
+                    }
+                }
+                h2{
+                    position: unset;
+                    margin: 0;
+                }
+            }
+            
+
+            .directorMessage{
+                img{
+                    // height: clamp(500px, 100vh, 600px);
+                    height: 100%;
+                    object-fit: cover;
+                    // object-position: 0 -10px;
+                }
+                p{
+                    font-size: .8rem;
+                    line-height: 1.5rem;
+                }
+
+                .director_slogan{
+                    margin: 25px 0;
+                }
+
+                .read_more {
+                    text-transform: capitalize;
+                    background-color: white;
+                    color: #000;
+                    border: 0.5px solid #000;
+                    width: auto;
+                    padding: 6px 18px;
+                    cursor: pointer;
+                    height: fit-content;
+                    font-size: 11px;
+                    font-family: 'Sinkin Sans 300 Light', sans-serif;
+
+                    // font-weight: 400;
+                    // margin-top: 8px;                    
+                }
+            }
+            
+            .mpTitle{
+                font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            }
+
+            .manufacturingPlant{
+                .inside{
+                    h2{
+                        font-size: 1.2rem !important;
+                        text-align: center;
+                    }
+                    p{
+                        margin: 12px 0 0;
+                        font-size: 13px;
+                        line-height: 1.3rem;
+                        color: #414141;
+                    }
+                    .primary-btn{
+                        // width: fit-content;
+                        // border: 1px solid gray;
+                        // padding: 6px 12px;
+                        // background: rgba(225,225,225, .5);
+                        // text-transform: capitalize;
+                        // margin: 0 auto;
+                        // cursor: pointer;
+                        // font-size: .1;
+
+                        text-transform: capitalize;
+                        background-color: white;
+                        color: #000;
+                        border: 0.5px solid #000;
+                        width: fit-content;
+                        padding: 6px 18px;
+                        cursor: pointer;
+                        height: fit-content;
+                        font-size: 11px;
+                        font-family: "Sinkin Sans 300 Light", sans-serif;
+                        margin: 0 auto;
+                    }
+                }
+                
+                .swipeButton {
+                    color: #000;
+                    border: 0.5px solid #000;
+                    width: 50px !important;
+                    height: 50px !important;
+                    cursor: pointer;            
+                    font-size: 13px;
+                    padding-bottom: 4px;
+                    float: right;
+                    margin-right: 18px;            
+                    background-color: #fff;
+                    border-radius: 50%;        
+                    border: 1px solid black;    
+        
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .read_more {
+                        margin-top: -1px;
+                    }
+                }
+
+                .prev-btn,
+                .next-btn {
+                    width: 40px;
+                    height: 40px;
+        
+                    &:hover {
+                        background-color: #555;
+
+                        svg {
+                            color: #fff;
+                        }   
+                    }
+                }
+
+                .swipeButton {
+                    color: #000;
+                    border: 0.5px solid #000;
+                    width: 50px !important;
+                    height: 50px !important;
+                    cursor: pointer;            
+                    font-size: 13px;
+                    padding-bottom: 4px;
+                    float: right;
+                    margin-right: 18px;            
+                    background-color: #fff;
+                    border-radius: 50%;        
+                    border: 1px solid black;    
+        
+                    .read_more {
+                        margin-top: -1px;
+                    }
+                }
+            }
+
+            .certifications{
+                .prev-btn-cert,
+                .next-btn-cert {
+                    width: 40px;
+                    height: 40px;
+                    z-index: 99999;
+                }
+
+                .swipeButton {
+                    color: #000;
+                    border: 0.5px solid #000;
+                    width: 50px !important;
+                    height: 50px !important;
+                    cursor: pointer;            
+                    font-size: 13px;
+                    padding-bottom: 4px;
+                    float: right;
+                    margin-right: 18px;            
+                    background-color: #fff;
+                    border-radius: 50%;        
+                    border: 1px solid black;    
+        
+                    .read_more {
+                        margin-top: -1px;
+                    }
+                }
+            }
+        }
+
+        .disableOnMobile{
+            display: inline !important;
+        }
+        .disableOnDesktop{
+            display: none !important;
+        }
+    }
+}
+
+    @media (max-width :750px){
+.aboutus_main .belowbanner .whoWeAre {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 172px;
+    align-items: center;
+}
+.aboutus_main .belowbanner .belowBannerText {
+    margin-left: -100px;
+}
+}
