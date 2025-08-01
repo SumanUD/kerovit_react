@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <Loader showLoader={show}/>
+      {pathname == '/' ? '' : <Loader showLoader={show}/> }
       <Header/>
         <AllRoutes/>        
         <div className="whatsapp-icon">

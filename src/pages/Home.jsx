@@ -12,6 +12,7 @@ import axios from "axios";
 
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
+import { Loader } from "../components/Loader";
 
 
 const nameMap = {
@@ -206,273 +207,281 @@ export const Home = () => {
       setError('')             
     }else{
       setError('Incorrect!!!')      
-    }
+    }    
+  }   
 
-    console.log(formData)
-  }      
-
-  console.log(catelogueData?.categories)
+  const [show, setShow] = useState(true)  
+  const functionOnVideoLoad = () =>{
+    setShow(false)
+    console.log('video lo/aded')
+  }
 
   return (
-    <main className="home">
-      <div className="homebanner">
-        <Swiper
-          loop={homeData?.banner_videos?.length > 1}
-          onSwiper={(swiper) => (swiperHomeRef.current = swiper)} // Assign Swiper instance
-        >
-          {
-            homeData?.banner_videos?.map((item, index)=>(
-              <SwiperSlide key={index}>
-                <video src={item} autoPlay loop muted></video>        
-              </SwiperSlide>          
-            ))
-          }
-        </Swiper>
-
-        {homeData?.banner_videos?.length > 1 && 
-          <>
-            <div className="action-button home-prev" onClick={handlePrevHomeSlide}><FaChevronLeft/></div>
-            <div className="action-button home-next" onClick={handleNextHomeSlide}><FaChevronRight/></div>
-          </>
-        }
-      </div>
-
-      <div className="home_categories">
-        {/* <h2>Categories</h2> */}
-        <img src="categories_heading.png" alt="" className="categories_heading" loading="lazy"/>
-        <div dangerouslySetInnerHTML={{ __html: homeData.categories_description }}/>
-
-        <div className="categories-slide">
-          <div className="category-option">
-            {/* <div className="heading">CATEGORIES</div> */}
+    <>
+      <Loader showLoader={show}/>      
+      <main className="home">
+        <div className="homebanner">
+          <Swiper
+            loop={homeData?.banner_videos?.length > 1}          
+            onSwiper={(swiper) => (swiperHomeRef.current = swiper)} // Assign Swiper instance
+          >
             {
-              Array.isArray(collectionSlide) && collectionSlide.map((item, index)=>(
-                <div className={`option ${activeIndex === index ? 'category-active': ''}`} onClick={() => handleTextClick(index)} key={index}><img src= {item.icon} alt="catalogue" className="categoryNameIcon" loading="lazy"/>{item.name}</div>
+              homeData?.banner_videos?.map((item, index)=>(
+                <SwiperSlide key={index}>
+                  <video 
+                    src={item} autoPlay loop muted
+                    onLoadedData={functionOnVideoLoad}                  
+                  ></video>        
+                </SwiperSlide>          
               ))
             }
-          </div>
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={10}
-            slidesPerView={2}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1023: { slidesPerView: 1.5 },                
-              1440: { slidesPerView: 2.5 },
-            }}              
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-          >
-            {Array.isArray(collectionSlide) && collectionSlide.map((product) => (
-              <SwiperSlide key={product.id}>
-                <div className="inside text-center">
-                  <Link to={product.link}><img src={product.img} alt={product.name} loading="lazy"/></Link>
-                  <div className="background-layer"></div>
-                  <div className="pop-on-hover">
-                    <p>{product.name}</p>
-                    <Link to={product.link}>
-                      <button type="button" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></button>
-                    </Link>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
           </Swiper>
+
+          {homeData?.banner_videos?.length > 1 && 
+            <>
+              <div className="action-button home-prev" onClick={handlePrevHomeSlide}><FaChevronLeft/></div>
+              <div className="action-button home-next" onClick={handleNextHomeSlide}><FaChevronRight/></div>
+            </>
+          }
         </div>
 
-        <div className="swiper_action_button view_on_desktop">
-          <button type="button" className="swip_button" onClick={handlePrevSlide}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
-          <button type="button" className="swip_button" onClick={handleNextSlide}><FaChevronRight className="right_arrow swip_button_icon"/></button>            
-        </div>          
-        <button type="button" className="view_on_mobile" onClick={handleNextSlide}>Swipe <BsArrowRight className="right_arrow"/></button>
-      </div>
+        <div className="home_categories">
+          {/* <h2>Categories</h2> */}
+          <img src="categories_heading.png" alt="" className="categories_heading" loading="lazy"/>
+          <div dangerouslySetInnerHTML={{ __html: homeData.categories_description }}/>
 
-      <div className="home_collections">
-        <h2>Collections</h2>        
-        <div dangerouslySetInnerHTML={{__html: homeData?.collections?.description}}/>
-      </div>
+          <div className="categories-slide">
+            <div className="category-option">
+              {/* <div className="heading">CATEGORIES</div> */}
+              {
+                Array.isArray(collectionSlide) && collectionSlide.map((item, index)=>(
+                  <div className={`option ${activeIndex === index ? 'category-active': ''}`} onClick={() => handleTextClick(index)} key={index}><img src= {item.icon} alt="catalogue" className="categoryNameIcon" loading="lazy"/>{item.name}</div>
+                ))
+              }
+            </div>
+            <Swiper
+              modules={[Pagination]}
+              spaceBetween={10}
+              slidesPerView={2}
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1023: { slidesPerView: 1.5 },                
+                1440: { slidesPerView: 2.5 },
+              }}              
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            >
+              {Array.isArray(collectionSlide) && collectionSlide.map((product) => (
+                <SwiperSlide key={product.id}>
+                  <div className="inside text-center">
+                    <Link to={product.link}><img src={product.img} alt={product.name} loading="lazy"/></Link>
+                    <div className="background-layer"></div>
+                    <div className="pop-on-hover">
+                      <p>{product.name}</p>
+                      <Link to={product.link}>
+                        <button type="button" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></button>
+                      </Link>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
 
-      <div className="aurum-klassic-row">
-        <div className="vertical-line"></div>
-        <div className="home_aurum">
-          <div className="title-container">            
-            <img src="aurum_heading.png" alt="" className="aurum_heading" loading="lazy"/>
-            <img src="/aurum_A.png" alt="A icon" className="aurum-icon"  loading="lazy"/>
+          <div className="swiper_action_button view_on_desktop">
+            <button type="button" className="swip_button" onClick={handlePrevSlide}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
+            <button type="button" className="swip_button" onClick={handleNextSlide}><FaChevronRight className="right_arrow swip_button_icon"/></button>            
           </div>          
-          <div dangerouslySetInnerHTML={{__html: homeData?.collections?.aurum?.description}}/>
-          <div className="img-container">            
-            <img src={homeData?.collections?.aurum?.image} alt="A icon" loading="lazy"/>
+          <button type="button" className="view_on_mobile" onClick={handleNextSlide}>Swipe <BsArrowRight className="right_arrow"/></button>
+        </div>
 
-            <button type="button" className="desktop-card-button">
+        <div className="home_collections">
+          <h2>Collections</h2>        
+          <div dangerouslySetInnerHTML={{__html: homeData?.collections?.description}}/>
+        </div>
+
+        <div className="aurum-klassic-row">
+          <div className="vertical-line"></div>
+          <div className="home_aurum">
+            <div className="title-container">            
+              <img src="aurum_heading.png" alt="" className="aurum_heading" loading="lazy"/>
+              <img src="/aurum_A.png" alt="A icon" className="aurum-icon"  loading="lazy"/>
+            </div>          
+            <div dangerouslySetInnerHTML={{__html: homeData?.collections?.aurum?.description}}/>
+            <div className="img-container">            
+              <img src={homeData?.collections?.aurum?.image} alt="A icon" loading="lazy"/>
+
+              <button type="button" className="desktop-card-button">
+                <Link to="/collection/aurum" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
+              </button>
+            </div>
+            <button type="button">
               <Link to="/collection/aurum" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
             </button>
           </div>
-          <button type="button">
-            <Link to="/collection/aurum" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
-          </button>
-        </div>
-        <div className="home_klassic">
-          <div className="title-container">            
-            <img src="klassic_heading.png" alt="" className="klassic_heading" loading="lazy"/>
-            <img src="/klassic_K.png" alt="K icon" className="klassic-icon"  loading="lazy"/>
-          </div>                  
-          <div dangerouslySetInnerHTML={{__html: homeData?.collections?.klassic?.description}}/>
-          <div className="img-container">
-            <img  src={homeData?.collections?.klassic?.image} alt="Single Product image"  loading="lazy"/>
+          <div className="home_klassic">
+            <div className="title-container">            
+              <img src="klassic_heading.png" alt="" className="klassic_heading" loading="lazy"/>
+              <img src="/klassic_K.png" alt="K icon" className="klassic-icon"  loading="lazy"/>
+            </div>                  
+            <div dangerouslySetInnerHTML={{__html: homeData?.collections?.klassic?.description}}/>
+            <div className="img-container">
+              <img  src={homeData?.collections?.klassic?.image} alt="Single Product image"  loading="lazy"/>
 
-            <button type="button" className="desktop-card-button">
+              <button type="button" className="desktop-card-button">
+                <Link to="/collection/klassic" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
+              </button>
+            </div>
+            <button type="button">
               <Link to="/collection/klassic" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
             </button>
           </div>
-          <button type="button">
-            <Link to="/collection/klassic" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
-          </button>
         </div>
-      </div>
 
-      <div className="first_banner desktop_view" style={{ backgroundImage: `url(${homeData?.store?.banner_image})` }}>          
-        <div className="inside_banner_content">
-          <h2>{homeData?.store?.header}</h2>
-          <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>
-          <Link to="/locate-our-store"><button className="locate">locate a store</button></Link>
+        <div className="first_banner desktop_view" style={{ backgroundImage: `url(${homeData?.store?.banner_image})` }}>          
+          <div className="inside_banner_content">
+            <h2>{homeData?.store?.header}</h2>
+            <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>
+            <Link to="/locate-our-store"><button className="locate">locate a store</button></Link>
+          </div>
+          <div className="inside_banner_image">
+            {/* <img src={homeData?.store?.banner_image} alt="" className="inside_banner_img" loading="lazy"/>           */}
+          </div>
         </div>
-        <div className="inside_banner_image">
-          {/* <img src={homeData?.store?.banner_image} alt="" className="inside_banner_img" loading="lazy"/>           */}
+        <div className="first_banner mobile_view" style={{ backgroundImage: `url(${homeData?.store?.banner_image})` }}>
+          <div className="inside_banner_content">
+            <h2>{homeData?.store?.header}</h2>
+            <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>          
+          </div>        
         </div>
-      </div>
-      <div className="first_banner mobile_view" style={{ backgroundImage: `url(${homeData?.store?.banner_image})` }}>
-        <div className="inside_banner_content">
-          <h2>{homeData?.store?.header}</h2>
-          <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>          
-        </div>        
-      </div>
 
-      <div className="second_banner mobile_view">
-        <div className="inside_banner_content">
-          <h2>the catalogue</h2>
-          <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>
-          {/* <button className="locate">locate a store</button> */}
+        <div className="second_banner mobile_view">
+          <div className="inside_banner_content">
+            <h2>the catalogue</h2>
+            <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>
+            {/* <button className="locate">locate a store</button> */}
+          </div>
+          <div className="catalogue">          
+            {            
+              catelogueData?.categories?.map((item, index)=>(
+                <div className="the_catelogue" key={index}>
+                  <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  <a href={item.pdf_link} target="_blank">{item.title}</a>
+                </div>
+              ))
+            }
+
+          </div>
         </div>
-        <div className="catalogue">          
-          {            
-            catelogueData?.categories?.map((item, index)=>(
-              <div className="the_catelogue" key={index}>
-                <img src={item.thumbnail_image} alt="" loading="lazy" />
-                <a href={item.pdf_link} target="_blank">{item.title}</a>
+        <div className="second_banner desktop_view">
+          <div className="inside_banner_content">
+            <h2>the catalogue</h2>
+            <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>            
+          </div>
+          <div className="catalogue">
+            {            
+              catelogueData?.categories?.map((item, index)=>(
+                <div className="the_catelogue" key={index}>
+                  <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  <a href={item.pdf_link} target="_blank">{item.title}</a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div className="home_aboutus desktop_view">
+          <video src={homeData?.about_us?.video} muted loop autoPlay></video>
+          <div className="inside_banner_content">
+            {/* <h2>about us</h2> */}          
+            <img src="aboutus_heading.png" alt="" className="aboutus_heading" loading="lazy"/>                    
+            <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>        
+            <Link to="/about">
+              <button className="read_more">
+                read more 
+              </button>
+              </Link>
+          </div>
+        </div>
+
+        <div className="home_aboutus mobile_view">
+          <video src={homeData?.about_us?.video} muted loop autoPlay></video>
+          <div className="inside_banner_content">
+            {/* <h2>about us</h2> */}
+            <img src="aboutus_heading.png" alt="" className="aboutus_heading" loading="lazy"/>
+            <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>        
+            <Link to="/about">
+              <button className="read_more">
+                read more 
+              </button>
+              </Link>
+          </div>
+        </div>
+
+        <div className="home_blog">
+          <div className="home_blog_top_heading">
+            <img src="home_blog_heading.png" alt="" className="home_blog_heading" loading="lazy"/>
+            <p>Explore our Blog and witness a world where desires take shape.</p>
+          </div>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            onSwiper={(swiper) => (swiperRefBlog.current = swiper)} // Assign Swiper instance
+          >
+            {LatestPost.map((blog) => (
+              <SwiperSlide key={blog.id}>
+                <div className="inside text-left">
+                  <Link to={`/blog/${blog.title.split(" ").join("_")}`}>
+                      <img src={blog.banner_image} alt="blogImg" className="swiperImg" />
+                  </Link>
+                  <p className="blog-date">{formatDate(blog.published_date)} <span className="space"></span> | <span className="space"></span> By Kerovit</p>
+                  <h3>{blog.title}</h3>                
               </div>
-            ))
-          }
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
+          <div className="blog-swiper-button view_on_desktop">
+            <button type="button" className="swip_button" onClick={handlePrevBlogSlide}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
+            <button type="button" className="swip_button" onClick={handleNextBlogSlide}><FaChevronRight className="right_arrow swip_button_icon"/></button>
+          </div>
+          <button type="button" className="view_on_mobile" onClick={handleNextBlogSlide}>Swipe<BsArrowRight className="right_arrow "/></button>
+          <Link to={'/blog'}>
+            <button className="btn-primary">All Blogs</button>
+          </Link>
         </div>
-      </div>
-      <div className="second_banner desktop_view">
-        <div className="inside_banner_content">
-          <h2>the catalogue</h2>
-          <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>            
-        </div>
-        <div className="catalogue">
-          {            
-            catelogueData?.categories?.map((item, index)=>(
-              <div className="the_catelogue" key={index}>
-                <img src={item.thumbnail_image} alt="" loading="lazy" />
-                <a href={item.pdf_link} target="_blank">{item.title}</a>
-              </div>
-            ))
-          }
-        </div>
-      </div>
 
-      <div className="home_aboutus desktop_view">
-        <video src={homeData?.about_us?.video} muted loop autoPlay></video>
-        <div className="inside_banner_content">
-          {/* <h2>about us</h2> */}          
-          <img src="aboutus_heading.png" alt="" className="aboutus_heading" loading="lazy"/>                    
-          <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>        
-          <Link to="/about">
-            <button className="read_more">
-              read more 
-            </button>
-            </Link>
+        <div className="home_contact">
+          <div className="inside_banner_content">
+            <div className="contact_header"><span>submit</span> <h2>your query</h2></div>
+            <form className="contact_form" onSubmit={e=>handleSubmit(e)}>
+              <input type="text" name="name" placeholder="Name  |" onChange={e=>handleChange(e)} value={formData.name} required/>
+              <input type="email" name="email" placeholder="Email  |" onChange={e=>handleChange(e)} value={formData.email} required/>            
+              <input type="tel" name="phone" placeholder="Phone  |" onChange={e=>handleChange(e)} value={formData.phone} required/>            
+              {apiError.phone && <span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span>}
+              <input type="text" name="state" placeholder="State  |" onChange={e=>handleChange(e)} value={formData.state} required/>
+              <input type="text" name="city" placeholder="City  |"onChange={e=>handleChange(e)} value={formData.city} required/>
+              <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} value={formData.message} required/>
+              <label forhtml="check_human">What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>
+              <input type="number" id="check_human" name="check_human" placeholder="Are You Human?" required />
+              
+              <button type="submit" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
+              {success && (
+                <p style={{color:"white", marginTop:'12px'}}>
+                  {success}
+                </p>
+              )}
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div className="home_aboutus mobile_view">
-        <video src={homeData?.about_us?.video} muted loop autoPlay></video>
-        <div className="inside_banner_content">
-          {/* <h2>about us</h2> */}
-          <img src="aboutus_heading.png" alt="" className="aboutus_heading" loading="lazy"/>
-          <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>        
-          <Link to="/about">
-            <button className="read_more">
-              read more 
-            </button>
-            </Link>
-        </div>
-      </div>
-
-      <div className="home_blog">
-        <div className="home_blog_top_heading">
-          <img src="home_blog_heading.png" alt="" className="home_blog_heading" loading="lazy"/>
-          <p>Explore our Blog and witness a world where desires take shape.</p>
-        </div>
-        <Swiper
-          modules={[Pagination]}
-          spaceBetween={20}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          onSwiper={(swiper) => (swiperRefBlog.current = swiper)} // Assign Swiper instance
-        >
-          {LatestPost.map((blog) => (
-            <SwiperSlide key={blog.id}>
-              <div className="inside text-left">
-                <Link to={`/blog/${blog.title.split(" ").join("_")}`}>
-                    <img src={blog.banner_image} alt="blogImg" className="swiperImg" />
-                </Link>
-                <p className="blog-date">{formatDate(blog.published_date)} <span className="space"></span> | <span className="space"></span> By Kerovit</p>
-                <h3>{blog.title}</h3>                
-            </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <div className="blog-swiper-button view_on_desktop">
-          <button type="button" className="swip_button" onClick={handlePrevBlogSlide}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
-          <button type="button" className="swip_button" onClick={handleNextBlogSlide}><FaChevronRight className="right_arrow swip_button_icon"/></button>
-        </div>
-        <button type="button" className="view_on_mobile" onClick={handleNextBlogSlide}>Swipe<BsArrowRight className="right_arrow "/></button>
-        <Link to={'/blog'}>
-          <button className="btn-primary">All Blogs</button>
-        </Link>
-      </div>
-
-      <div className="home_contact">
-        <div className="inside_banner_content">
-          <div className="contact_header"><span>submit</span> <h2>your query</h2></div>
-          <form className="contact_form" onSubmit={e=>handleSubmit(e)}>
-            <input type="text" name="name" placeholder="Name  |" onChange={e=>handleChange(e)} value={formData.name} required/>
-            <input type="email" name="email" placeholder="Email  |" onChange={e=>handleChange(e)} value={formData.email} required/>            
-            <input type="tel" name="phone" placeholder="Phone  |" onChange={e=>handleChange(e)} value={formData.phone} required/>            
-            {apiError.phone && <span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span>}
-            <input type="text" name="state" placeholder="State  |" onChange={e=>handleChange(e)} value={formData.state} required/>
-            <input type="text" name="city" placeholder="City  |"onChange={e=>handleChange(e)} value={formData.city} required/>
-            <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} value={formData.message} required/>
-            <label forhtml="check_human">What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>
-            <input type="number" id="check_human" name="check_human" placeholder="Are You Human?" required />
-            
-            <button type="submit" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
-            {success && (
-              <p style={{color:"white", marginTop:'12px'}}>
-                {success}
-              </p>
-            )}
-          </form>
-        </div>
-      </div>
-    </main>
+      </main>
+    </>    
   )
 }
