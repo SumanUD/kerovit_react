@@ -212,8 +212,7 @@ export const Home = () => {
 
   const [show, setShow] = useState(true)  
   const functionOnVideoLoad = () =>{
-    setShow(false)
-    console.log('video lo/aded')
+    setShow(false)    
   }
 
   return (
