@@ -291,35 +291,45 @@
 
     .below-banner {
       .customer-description {
-        font-size: 1rem;
+        font-size: 9.854px;
         margin-bottom: 2rem;
       }
 
       .company-info {
         flex-direction: column;
+        gap: 0;
+
+        .section-title{
+          font-size: 20px !important;
+        }
+        .title{
+          font-size: 1rem !important;
+        }
+
+      }
 
         .section {
           width: 100%;
         }
-      }
 
-      .app-section {
-        flex-direction: column;
+        .app-section {
+          flex-direction: column;
 
-        section {
-          width: 100%;
+          section {
+            width: 100%;
+          }
         }
-      }
 
       .form-header {
         margin-top: 3rem;
+        gap: 1rem;
 
         .form-title {
-          font-size: 1.6rem;
+          font-size: 20px;
         }
 
         .form-description {
-          font-size: 1rem;
+          font-size: 9.854px;
         }
       }
     }
