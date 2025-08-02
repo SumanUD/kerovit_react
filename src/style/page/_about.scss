@@ -825,13 +825,28 @@
 }
 
     @media (max-width :750px){
-.aboutus_main .belowbanner .whoWeAre {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 172px;
-    align-items: center;
-}
-.aboutus_main .belowbanner .belowBannerText {
-    margin-left: -100px;
-}
+    .aboutus_main .homebanner{
+        height: 30vh;
+    }
+    .aboutus_main .belowbanner .whoWeAre {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 172px;
+        align-items: center;
+
+        & > div:nth-child(2){
+            font-size: 12px;
+        }
+        .belowBannerText{
+            h2{
+                font-size: 40px !important;
+            }
+            .h2_second p{
+                font-size: 20px !important;
+            }
+        }
+    }
+    .aboutus_main .belowbanner .belowBannerText {
+        margin-left: -100px;
+    }
 }

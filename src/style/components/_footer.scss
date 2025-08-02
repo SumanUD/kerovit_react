@@ -83,13 +83,15 @@
 
             .accordion-body {
                 color: #fff;
-                padding: 15px;
+                padding: 0;                
                 // font-size: 0.9rem;
                 ul {
                   li {
-                    text-decoration: underline;
+                    list-style: none;
+                    margin-bottom: 8px;
+                    // text-decoration: underline;
                     a {
-                      color: #fff;
+                      color: #acacac;
                     }
                   }
                 }

@@ -5,6 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Loader } from "./components/Loader";
+import { Link } from "react-router-dom";
 
 function App() {  
 
@@ -30,10 +31,11 @@ function App() {
     <>
       {pathname == '/' ? '' : <Loader showLoader={show}/> }
       <Header/>
-        <AllRoutes/>        
-        <div className="whatsapp-icon">
+        <AllRoutes/>    
+            
+        <Link to={'https://wa.me/9289077800'} target="__blank" className="whatsapp-icon">
           <FaWhatsapp />
-        </div>
+        </Link>
       <Footer/>
     </>
   )

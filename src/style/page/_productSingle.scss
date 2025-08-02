@@ -74,6 +74,18 @@ $active-color: yellow;
       color: $black;
     }
 
+    @media (max-width: 760px) {
+      h2{
+        font-size: 18px;
+      }
+      p{
+        font-size: 9.854px;
+      }
+      h3{
+        font-size: 14px;
+      }
+    }
+
     .variants {
       display: flex;
       justify-content: left;

@@ -225,8 +225,8 @@ export const CustomerCare = () => {
             <input type="text" id="city" name="city" value={formData.city} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
-            <label htmlFor="city">Message*</label>
-            <textarea type="text" id="city" name="message" value={formData.message} onChange={e => handleChange(e)} required />
+            <label htmlFor="message">Message*</label>
+            <textarea type="text" id="message" name="message" value={formData.message} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
             <label htmlFor="human-check">What is {num1} + {num2}? <span style={{ color: 'red', marginLeft: '15px' }}>{numError}</span></label>
