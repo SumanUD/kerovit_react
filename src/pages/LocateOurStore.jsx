@@ -191,13 +191,13 @@ export const LocateOurStore = () => {
 
                     <div className="store-locator-box">
                         <div className="search-bar">
-                            <input type="text" placeholder="Pincode here.." onChange={(e)=>handleSearchInput(e.target.value)}  value={search || ""}/>
-                            <button className="search-btn">
+                            <input type="text" placeholder="Pincode here.." onChange={(e)=>handleSearchInput(e.target.value)} value={search || ""} />
+                            <button className="search-btn">                                    
+                                <FaSearch />
+                            </button>                                                                                                
                             <div className="search-error">
                                 {searchErrorm}    
-                            </div>            
-                            <FaSearch />
-                            </button>                                                                                                
+                            </div>    
                         </div>                                                
 
                         {/* <hr className="divider" /> */}
@@ -272,8 +272,8 @@ export const LocateOurStore = () => {
                                 <input type="email" id="email" name="email" value={formData.email} onChange={e=>handleChange(e)} required />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="city">State*</label>
-                                <select id="city" name="state" onChange={e=>handleChange(e)} value={formData.state} required>
+                                <label htmlFor="state">State*</label>
+                                <select id="state" name="state" onChange={e=>handleChange(e)} value={formData.state} required>
                                     <option value="">Select State</option>
                                     <option value="andhra-pradesh" >Andhra Pradesh</option>
                                     <option value="arunachal-pradesh">Arunachal Pradesh</option>
@@ -319,8 +319,8 @@ export const LocateOurStore = () => {
                                 <input type="text" id="city" name="city" value={formData.city} onChange={e=>handleChange(e)} required />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="city">Message*</label>
-                                <textarea type="text" id="city" name="message" value={formData.message} onChange={e=>handleChange(e)} required />
+                                <label htmlFor="message">Message*</label>
+                                <textarea type="text" id="message" name="message" value={formData.message} onChange={e=>handleChange(e)} required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="human-check">What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>

@@ -108,13 +108,14 @@
                 padding: 0.8rem 1rem;
                 font-size: 1rem;
                 cursor: pointer;
-                .search-error{
+
+              }
+            .search-error{
                     display: inline-block;
                     margin-right: 12px;
                     color: crimson;
                     font-size: 12px;
                 }
-              }
             }
           
             .divider {
@@ -191,6 +192,7 @@
             .search-btn {
               padding: 0.6rem 0.8rem;
               font-size: 0.95rem;
+              display: none;
             }
           }
       
