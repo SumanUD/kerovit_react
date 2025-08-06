@@ -93,30 +93,36 @@ export const Header = () => {
     };
   }, []);  
 
-  useEffect(()=>{
-    setSearchMessage('searching...')
-    let isMounted = true;
-    async function handleSearch(text){
-      try{
-        const res = await axios.get(`${searchURL}?query=${text.trim()}`)                        
-        if(isMounted){          
-          setSearchArr(res.data.products)        
-          setSearchMessage(res.data.products.length >= 1 ? null : "No products found.")
-        }        
-      }catch(err){
-        console.log(err)
-      }
-    }
-    if(defferedValue.length > 1){
-      handleSearch(defferedValue)
-    }else{
-      setSearchArr([])
-    }
+useEffect(() => {
+  setSearchMessage('searching...');
+  let isMounted = true;
 
-    return () =>{
-      isMounted = false;
+  async function handleSearch(text) {
+    try {
+      const res = await axios.get(`${searchURL}?q=${text.trim()}`);
+      if (isMounted) {
+        setSearchArr(res.data.products); 
+        console.log(res.data)
+
+        setSearchMessage(res.data.products.length >= 1 ? null : "No products found.");
+      }
+    } catch (err) {
+      console.log(err);
+      setSearchMessage("Something went wrong while searching.");
     }
-  }, [defferedValue])  
+  }
+
+  if (defferedValue.length > 1) {
+    handleSearch(defferedValue);
+  } else {
+    setSearchArr([]);
+  }
+
+  return () => {
+    isMounted = false;
+  };
+}, [defferedValue]);
+
 
   const handleOpenSearch = () => {    
     setOpenSearch(!openSearch);
@@ -208,10 +214,13 @@ export const Header = () => {
                 <div className="search-list">                            
                   {                    
                     searchArr.slice(0, itemsToShow).map((item, index)=>(
-                    <Link to={`/collection/${collectionType[item.collection]}/${categoryType[item.category]}/${item.range ? dictionary.Range[item.range] : "single"}/${item.product_code}`} key={index}>
+                    <Link to={`/collection/${collectionType[item.collection_id]}/${categoryType[item.category_id]}/${item.range_id ? dictionary.Range[item.range_id] : "single"}/${item.product_code}`} key={index}>
                       <div className="list-card">
                         <div className="list-img">
-                          <img src={item.thumbnail_picture_url} alt="" />
+                        
+                          <img src={`https://admin.kerovit.com/storage/${item.product_picture}`} alt="" />
+
+
                         </div>
                         <div>
                           <p className="list-card-head">{item.product_title}</p>
