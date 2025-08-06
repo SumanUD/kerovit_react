@@ -20,7 +20,7 @@ export const ProductSingle = () => {
     const [openSection, setOpenSection] = useState(null);
 
     const location = useLocation();
-    const rangeId = location.state.range;
+    const rangeId = location.state.rangeId;    
 
     const toggleSection = (sectionIndex) => {
         setOpenSection(openSection === sectionIndex ? null : sectionIndex);
@@ -47,6 +47,7 @@ export const ProductSingle = () => {
 
                 setSelectedImage(getProduct.product_picture)
                 setLoadSimulate(false)
+                
             } catch (err) {
                 console.log(err)
             }

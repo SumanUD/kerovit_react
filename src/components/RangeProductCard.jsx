@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { act, useEffect, useState } from "react";
 
-export const RangeProductCard = ({item, series, product, variation, rangeId, index}) => {
+export const RangeProductCard = ({item, series, product, variation, rangeId, index}) => {    
 
     const [loadedImg, setLoadedImg] = useState([]);
     function handleloadedImage(index){
