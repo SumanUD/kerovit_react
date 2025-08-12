@@ -1,0 +1,63 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+export default function HomeSecondBanner(){
+
+  const [catelogueData, setCatelogueData] = useState({});
+  const catelogueURL = import.meta.env.VITE_API_CATALOGUE;  
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res2 = await axios.get(catelogueURL , {
+          headers: {
+            'Authorization': `Bearer gVSYUDhjLSXMDZSpVdPCiz9s`, // Replace with your actual API key
+            'Content-Type': 'application/json', // Set content type if required
+          },
+        });              
+        setCatelogueData(res2.data.data)
+      } catch (err) {
+        console.error('Error:', err.message);
+      }
+    }
+
+    getData();
+  }, []);
+
+  return (
+    <>
+        <div className="second_banner mobile_view">
+          <div className="inside_banner_content">
+            <h2>the catalogue</h2>
+            <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>            
+          </div>
+          <div className="catalogue">          
+            {            
+              catelogueData?.categories?.map((item, index)=>(
+                <div className="the_catelogue" key={index}>
+                  <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  <a href={item.pdf_link} target="_blank">{item.title}</a>
+                </div>
+              ))
+            }
+
+          </div>
+        </div>
+        <div className="second_banner desktop_view">
+          <div className="inside_banner_content">
+            <h2>the catalogue</h2>
+            <p>Browse our latest catalogue and discover the perfect bathroom solutions for your home.</p>            
+          </div>
+          <div className="catalogue">
+            {            
+              catelogueData?.categories?.map((item, index)=>(
+                <div className="the_catelogue" key={index}>
+                  <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  <a href={item.pdf_link} target="_blank">{item.title}</a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+    </>
+  )
+}
