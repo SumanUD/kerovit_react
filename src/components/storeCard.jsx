@@ -66,7 +66,7 @@ const StoreCard = ({
                                                 </a>                            
                                             </div> : 
                                             <p>
-                                               <img src={locaionIcon} alt="location" /> {item.state}, {item.city}
+                                               <img src={locaionIcon} alt="location" /> {item.state}, {item.city} - {item.pincode}
                                             </p>
                                         }
                                     </div>

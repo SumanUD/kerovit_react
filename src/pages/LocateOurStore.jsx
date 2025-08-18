@@ -10,7 +10,7 @@ export const LocateOurStore = () => {
     const [worldType, setWorldType] = useState([]);
     const [experienceType, setExperienceType] = useState([])
 
-    const [search, setSearch] = useState('') 
+    const [search, setSearch] = useState() 
     const [state, setState] = useState([])
     const [city, setCity] = useState([])
 
@@ -70,7 +70,7 @@ export const LocateOurStore = () => {
         if(selectedState){
             setNewList(filterCitie);
         }else{
-            const searchWord = allType.filter(obj => obj.dealername?.toLowerCase().includes(search.toLowerCase()))            
+            const searchWord = allType.filter(obj => obj.pincode?.toLowerCase().includes(search))            
             setNewList(searchWord)
 
             if(searchWord.length == 0){
@@ -190,7 +190,7 @@ export const LocateOurStore = () => {
 
                     <div className="store-locator-box">
                         <div className="search-bar">
-                            <input type="text" placeholder="Pincode here.." onChange={(e)=>handleSearchInput(e.target.value)} value={search || ""} />
+                            <input type="number" placeholder="Pincode here.." onChange={(e)=>handleSearchInput(e.target.value)} value={search || ""} />
                             <button className="search-btn">                                                                    
                                 <img src={searchIcon} alt="search-icon" />
                             </button>                                                                                                
