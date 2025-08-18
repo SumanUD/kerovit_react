@@ -20,7 +20,9 @@ export const ProductSingle = () => {
     const [openSection, setOpenSection] = useState(null);
 
     const location = useLocation();
-    const rangeId = location.state.rangeId;    
+    const rangeId = location.state.range;    
+
+    console.log(rangeId)
 
     const toggleSection = (sectionIndex) => {
         setOpenSection(openSection === sectionIndex ? null : sectionIndex);
@@ -75,9 +77,6 @@ export const ProductSingle = () => {
                                     zoomScale={0.8}
                                 />
                             </div>
-
-
-
 
                             <div className="product-details">
                                 <div className="description">
