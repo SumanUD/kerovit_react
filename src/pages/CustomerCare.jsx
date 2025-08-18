@@ -1,6 +1,6 @@
-import { MdOutlineEmail } from "react-icons/md";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { IoMdDownload } from "react-icons/io";
+import email from '../../public/icons/email.webp';
+import headset from '../../public/icons/headset.webp';
+import download from '../../public/icons/download.webp';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -114,7 +114,7 @@ export const CustomerCare = () => {
 
         <div className="company-info">
           <div className="section">
-            <div className="section-title">Email <MdOutlineEmail /></div>
+            <div className="section-title">Email <img src={email} alt="email-icon" /></div>
 
             <div className="title">Service Query</div>
             <a href="mailto:customercare@kerovit.com">{customerData?.emails?.service_query}</a>
@@ -124,7 +124,7 @@ export const CustomerCare = () => {
 
           </div>
           <div className="section">
-            <div className="section-title">customer care <RiCustomerService2Fill /></div>
+            <div className="section-title">customer care <img src={headset} alt="headset-icon" /></div>
 
             {/* <div className="title">call</div>
             <p><a href={`tel:${customerData?.customer_care?.call}`}>{customerData?.customer_care?.call}</a></p> */}
@@ -139,7 +139,7 @@ export const CustomerCare = () => {
         <div className="app-section">
           <section className="app-text">
             <div className="section-title">
-              Download Service App <IoMdDownload />
+              Download Service App <img src={download} alt="download-icon" />
             </div>
             <div className="title">Service Query</div>
           </section>

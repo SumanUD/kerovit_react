@@ -3,12 +3,12 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useRef, useState } from "react";
-import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
+import bsrightArrow from '../../public/icons/right_arrow.webp';
+import rightArrow from '../../public/icons/right-arrow.webp';
+import leftArrow from '../../public/icons/left-arrow.webp';
 
     const blogPopularPosts = [
     { id: 1, img: "/blogs/blogs8.png", title: "The Benefits of Upgrading to a One Piece Toilet in Your Home", desc: "Bathroom faucets play a pivotal role in the overall design and functionality of your bathroom." },
@@ -111,8 +111,12 @@ export const Blogs = () => {
         <p>Stay updated with tech innovation, product launches, and event showcases to know  how Kerovit continues to evolve bathrooms.</p>
         </div>
         <div className="swiper_action_button view_on_desktop">
-            <button type="button" className="swip_button" onClick={handleNextBlogSlide1}><FaChevronRight className="right_arrow swip_button_icon"/></button>            
-            <button type="button" className="swip_button" onClick={handlePrevBlogSlide1}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
+            <button type="button" className="swip_button" onClick={handleNextBlogSlide1}>                
+                <img src={rightArrow} alt="right-arrow" className="right_arrow swip_button_icon"/>
+            </button>            
+            <button type="button" className="swip_button" onClick={handlePrevBlogSlide1}>                
+                <img src={leftArrow} alt="right-arrow" className="right_arrow swip_button_icon"/>
+            </button>
         </div> 
         <Swiper
             modules={[Pagination]}
@@ -139,11 +143,12 @@ export const Blogs = () => {
         </Swiper>
 
         {/* <button type="button" onClick={handleNextBlogSlide1}>
-            Swipe <BsArrowRight className="right_arrow" />
+            Swipe <img src={bsrightArrow} alt="right-icon" className="right_arrow"/>      
         </button> */}
         <Link to = "/blog/latestPost">
         <button type="button">
-            More Blogs <BsArrowRight className="right_arrow" />
+            More Blogs 
+            <img src={bsrightArrow} alt="right-icon" className="right_arrow"/>            
         </button> 
         </Link>
         
@@ -153,8 +158,12 @@ export const Blogs = () => {
         <h2 className="blog_title">Popular Posts</h2>
         <p>Catch up on the stories, ideas, insights, and inspiration that our readers can’t get enough of.</p>
         <div className="swiper_action_button view_on_desktop">
-            <button type="button" className="swip_button" onClick={handleNextBlogSlide2}><FaChevronRight className="right_arrow swip_button_icon"/></button>            
-            <button type="button" className="swip_button" onClick={handlePrevBlogSlide2}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
+            <button type="button" className="swip_button" onClick={handleNextBlogSlide2}>
+                <img src={rightArrow} alt="right-arrow" className="right_arrow swip_button_icon"/>                
+            </button>            
+            <button type="button" className="swip_button" onClick={handlePrevBlogSlide2}>                
+                <img src={leftArrow} alt="right-arrow" className="right_arrow swip_button_icon"/>
+            </button>
         </div> 
 
         <Swiper
@@ -182,12 +191,12 @@ export const Blogs = () => {
         </Swiper>
 
         {/* <button type="button" onClick={handleNextBlogSlide2}>
-            Swipe <BsArrowRight className="right_arrow" />
+            Swipe <img src={bsrightArrow} alt="right-icon" className="right_arrow"/>      
         </button> */}
         <Link to = "/blog/popularPost">
 
         <button type="button">
-            More Blogs <BsArrowRight className="right_arrow" />
+            More Blogs <img src={bsrightArrow} alt="right-icon" className="right_arrow"/>      
         </button>
         </Link>
 

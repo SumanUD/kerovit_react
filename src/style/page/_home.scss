@@ -12,6 +12,9 @@ $text-color: #757575;
     width: 110px;
     padding: 4px;
     color: #000;
+    img{
+      height: 20px;
+    }
   }
 
 
@@ -527,6 +530,9 @@ $text-color: #757575;
             bottom: -40px;                  
             border-color: #fff;
             color: #fff;
+            img{
+              filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(7469%) hue-rotate(85deg) brightness(109%) contrast(106%);
+            }
 
             &:hover{
               background: transparent;
@@ -1625,6 +1631,9 @@ $text-color: #757575;
       // right: 15px;
       // bottom: -50px;
       color: #000;
+      img{
+        height: 20px;
+      }
 
 
 

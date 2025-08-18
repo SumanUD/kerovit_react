@@ -1,4 +1,4 @@
-import { FaWhatsapp } from "react-icons/fa";
+import whatsapp from '../../public/icons/whatsapp.webp';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay,  Navigation, Pagination } from "swiper/modules";
 import { useState, useEffect } from "react";
@@ -7,8 +7,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
+import rightArrow from '../../public/icons/right-arrow.webp';
+import leftArrow from '../../public/icons/left-arrow.webp';
+
 import { useLocation} from "react-router-dom";
 
 export const About = () => {
@@ -109,7 +110,7 @@ export const About = () => {
           </div>
         </div> */}
         <div className="whatsapp-icon">
-          <FaWhatsapp  />
+          <img src={whatsapp} alt="whatsapp-icons" />
         </div>        
       </div>
 
@@ -200,12 +201,12 @@ export const About = () => {
             ))}
           </Swiper>
 
-          <div className="swipeButton" onClick={handleNextSlide}>
-            <FaChevronRight />          
-          </div>
-          <div className="swipeButton" onClick={handlePrevSlide}>
-            <FaChevronLeft />
-          </div>
+          <button className="swipeButton" onClick={handleNextSlide}>            
+            <img src={rightArrow} alt="right-icon" />
+          </button>
+          <button className="swipeButton" onClick={handlePrevSlide}>            
+            <img src={leftArrow} alt="left-icon" />
+          </button>
 
           
           {/* <button type="button" className="swipeButton" onClick={handleNextSlide}><FaChevronRight className="right_arrow disableOnMobile" /><span className="disableOnDesktop">Swipe < BsArrowRight  className="right_arrow" /></span></button> */}
@@ -245,8 +246,11 @@ export const About = () => {
           <button className="next-btn-cert"><MdKeyboardArrowRight /></button> */}
 
           <div className="swiper-button-2 disableOnMobile">
-            <button type="button" className="swipeButton dissable_button" onClick={handleNextCertificateSlide}><FaChevronRight className="right_arrow" /></button>
-            <button type="button" className="swipeButton" onClick={handlePrevCertificateSlide}><FaChevronLeft className="right_arrow" /></button>
+            <button type="button" className="swipeButton dissable_button" onClick={handleNextCertificateSlide}>
+              <img src={rightArrow} alt="right-icon" className="right_arrow" /></button>
+            <button type="button" className="swipeButton" onClick={handlePrevCertificateSlide}>             
+              <img src={leftArrow} alt="left-icon"  className="right_arrow" />
+            </button>
           </div>
         </div>
       </div>      

@@ -1,4 +1,4 @@
-import { FaWhatsapp } from "react-icons/fa";
+import whatsapp from '../../public/icons/whatsapp.webp';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -35,7 +35,7 @@ export const Career = () => {
             <p><b>team</b></p>
         </div>
         <div className="whatsapp-icon">
-            <FaWhatsapp/>
+            <img src={whatsapp} alt="whatsapp-icons" />
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 import { AllRoutes } from "./routes/AllRoutes"
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { FaWhatsapp } from "react-icons/fa";
+import whatsapp from '../public/icons/whatsapp.webp';
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Loader } from "./components/Loader";
@@ -29,12 +29,12 @@ function App() {
 
   return (
     <>
-      {pathname == '/' ? '' : <Loader showLoader={show}/> }
+      {pathname == '/' ? <Loader showLoader={show}/>  : ''}
       <Header/>
         <AllRoutes/>    
             
         <Link to={'https://wa.me/9289077800'} target="__blank" className="whatsapp-icon">
-          <FaWhatsapp />
+          <img src={whatsapp} alt="whatsapp-icons" />
         </Link>
       <Footer/>
     </>

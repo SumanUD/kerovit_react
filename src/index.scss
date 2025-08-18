@@ -84,5 +84,13 @@ a{
     }
 }
 
+  button {    
+    img{
+      height: 20px !important;
+      width: 20px !important;
+      margin: 0 !important;
+      object-fit: contain !important;
+    }
+  }
 
 

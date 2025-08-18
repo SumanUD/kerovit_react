@@ -1,18 +1,15 @@
-import React, { useState } from "react";
-import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaGooglePlay, FaApple, FaTwitter } from "react-icons/fa";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import plusIcon from "../../public/icons/plus.png";
-import minusIcon from "../../public/icons/minus.png";
 
+import plusIcon from "../../public/icons/plus.webp";
+import minusIcon from "../../public/icons/minus.webp";
 import logo from "../../public/kerovit_logo.png";
-import googlePlay from "../../public/google_play.png";
-import appStore from "../../public/app_store.png";
 import facebook from "../../public/facebook.png";
 import instagram from "../../public/instagram.png";
 import twitter from "../../public/twitter.png";
 import youtube from "../../public/youtube.png";
 import linkedin from "../../public/linkedin.png";
-import down from "../../public/icons/down.png";
+import down from "../../public/icons/down.webp";
 
 export const Footer = () => {
     const [openAccordion, setOpenAccordion] = useState(null);

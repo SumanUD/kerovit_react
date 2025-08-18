@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import plusIcon from "../../public/icons/plus.png";
-import minusIcon from "../../public/icons/minus.png";
+import plusIcon from "../../public/icons/plus.webp";
+import minusIcon from "../../public/icons/minus.webp";
 import 'react-inner-image-zoom/lib/styles.min.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { Link, useLocation, useParams } from 'react-router-dom'

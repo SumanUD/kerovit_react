@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import axios from "axios";
 import HomeBannerVid from '../../public/videos/keroHero.webm';
 import { HomeForm } from "./home_components/HomeForm";
 import HomeCategories from "./home_components/HomeCategories";
 import HomeCollections from "./home_components/HomeCollections";
 import HomeFirstBanner from "./home_components/HomeFirstBanner";
-import HomeSecondBanner from "./home_components/HomeSecondBanner";
+// import HomeSecondBanner from "./home_components/HomeSecondBanner";
 import HomeAbout from "./home_components/HomeAbout";
-import HomeBlogs from "./home_components/HomeBlogs";
+// import HomeBlogs from "./home_components/HomeBlogs";
+import { Loading } from "../components/Loading";
 
+const HomeSecondBanner = lazy(()=> import('./home_components/HomeSecondBanner'))
+const HomeBlogs = lazy(()=> import('./home_components/HomeBlogs'))
 
 const nameMap = {
   accessories: "Accessories",
@@ -19,15 +22,11 @@ const nameMap = {
   toilet: "Toilet",
 };
 
-
 export const Home = () => {  
 
-  const homeURL = import.meta.env.VITE_API_HOME;  
-  
-  const baseUrl = import.meta.env.VITE_API_BASEURL;
+  const homeURL = import.meta.env.VITE_API_HOME;    
   const [homeData, setHomeData] = useState({})
   const [collectionSlide, setCollectionSlide] = useState({})
-  const [LatestPost, setLatestPost] = useState([]);
   useEffect(() => {
     async function getData() {
       try {        
@@ -37,8 +36,7 @@ export const Home = () => {
             'Content-Type': 'application/json', // Set content type if required
           },
         });
-        const response = await axios.get(baseUrl+'/api/blogs', { headers: { 'Content-Type': 'application/json' } });
-        setLatestPost(response.data.data)    
+      
         setHomeData(res.data.data)
         const cateImages = res.data.data.categories_images
         const products = Object.keys(cateImages).map((key, index) => ({
@@ -76,11 +74,14 @@ export const Home = () => {
         </div>        
         <HomeCategories collectionSlide={collectionSlide} homeData={homeData}/>      
         <HomeCollections homeData={homeData}/>                                
-        <HomeFirstBanner homeData={homeData} />                
-        <HomeSecondBanner/>                        
+        <HomeFirstBanner homeData={homeData} />    
+        <Suspense fallback={<Loading/>}>
+          <HomeSecondBanner/>   
+        </Suspense>                                       
         <HomeAbout homeData={homeData}/>      
-        <HomeBlogs LatestPost={LatestPost}/>
-
+        <Suspense fallback={<Loading/>}>
+          <HomeBlogs/>
+        </Suspense>
         <HomeForm/>
       </main>
     </div>    

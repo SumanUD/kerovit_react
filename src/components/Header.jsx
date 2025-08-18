@@ -1,14 +1,15 @@
 import { useState, useEffect, useRef, Suspense, useDeferredValue } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { IoClose } from "react-icons/io5";
-import subMenuIcon from "../../public/icons/down.png"; // Import your submenu icon
-import { GiHamburgerMenu } from "react-icons/gi";
 
-import { CiLocationOn } from "react-icons/ci";
-import { IoIosSearch } from "react-icons/io";
-import { MdCall } from "react-icons/md";
+import subMenuIcon from "../../public/icons/down.webp"; // Import your submenu icon
+
+import close from '../../public/icons/close.webp';
+import hamburger from '../../public/icons/more.webp';
+import search from '../../public/icons/search.webp';
+import call from '../../public/icons/call.webp';
+
+
 import axios from "axios";
-import dictionary from "../../data/api-dictionary";
 
 
 const collectionType = {
@@ -168,8 +169,8 @@ useEffect(() => {
       <nav id="navbarMenu" className={`${scrolled ? "scrolled" : ""} ${openMenuList ? "scrolled" : ""} ${openSearch ? "scrolled" : ""}`}>         
         <div className="nav-contents">
           <div className="nav-left">
-            <div className="toggleMenu" >
-              <GiHamburgerMenu onClick={toggleMenu}/>
+            <div className="toggleMenu" >              
+              <img src={hamburger} alt="hamburger" onClick={toggleMenu}/>
               <NavLink to="/">
               <img
                   src="/kerovit_logo.png"
@@ -193,18 +194,18 @@ useEffect(() => {
           
           <div className="nav-right">
             <NavLink to="/customer-care">              
-              {/* <CiLocationOn  />      */}
-              <MdCall className="menu_location"/>         
+              {/* <CiLocationOn  />      */}              
+              <img src={call} alt="call-icon" className="menu_location"/>
               
             </NavLink>            
 
-            <IoIosSearch onClick={handleOpenSearch} className="menu_search desktop"/>
+            <img src={search} alt="search-icon" onClick={handleOpenSearch} className="menu_search desktop"/>            
           </div>
 
           <div className={`search-desktop ${openSearch ? "open" : ""}`}>
             <div className="search-desktop-container">
-              <input type="text" ref={searchInputRef} placeholder="Search..." onChange={( )=> setSearchInput(searchInputRef.current.value)} className="search-desktop-input" />              
-              <IoClose className="close_icon" onClick={handleCloseSearch}/>                      
+              <input type="text" ref={searchInputRef} placeholder="Search..." onChange={( )=> setSearchInput(searchInputRef.current.value)} className="search-desktop-input" />                            
+              <img className="close_icon" src={close} alt="" onClick={handleCloseSearch}/>                  
             </div>
             {
               searchInputRef?.current?.value &&
@@ -266,10 +267,10 @@ useEffect(() => {
               </p>
               <ul className="dropdown" style={{ display: activeIndex === 2 ? "block" : "none" }}>
                 {[                  
-                  { img: "/icons/info.png", label: "Who We Are", link: "/about" },
-                  { img: "/icons/messenger.png", label: "Director's Message", link: "/about" },
-                  { img: "/icons/factory.png", label: "Manufacturing Plants", link: "/about" },
-                  { img: "/icons/certificate.png", label: "Certification", link: "/about" },
+                  { img: "/icons/info.webp", label: "Who We Are", link: "/about" },
+                  { img: "/icons/messenger.webp", label: "Director's Message", link: "/about" },
+                  { img: "/icons/factory.webp", label: "Manufacturing Plants", link: "/about" },
+                  { img: "/icons/certificate.webp", label: "Certification", link: "/about" },
                 ].map((item, index) => (
                   <li key={index} onClick={(e) => e.stopPropagation()}>
                     <img src={item.img} alt={item.name} className="moreIcon" loading="lazy"/>
@@ -308,7 +309,7 @@ useEffect(() => {
                   // { img: "/icons/whatsnew.png", label: "What's New", link: "#" },
                   { img: "/icons/career.png", label: "Career", link: "/our-career" },
                   { img: "/icons/resources.png", label: "Blog", link: "/blog" },
-                  { img: "/icons/phone.png", label: "Customer Care", link: "/customer-care" },
+                  { img: "/icons/phone.webp", label: "Customer Care", link: "/customer-care" },
                 ].map((item, index) => (
                   <li key={index} onClick={(e) => e.stopPropagation()}>
                     <img src={item.img} alt={item.name} className="moreIcon" loading="lazy"/>

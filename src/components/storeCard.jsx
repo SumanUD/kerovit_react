@@ -1,12 +1,10 @@
-import { FaPhoneAlt } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from 'swiper/modules';
 import "swiper/css";
 import 'swiper/css/pagination';
-// import 'swiper/css/navigation';
 
-import { MdLocationPin } from "react-icons/md";
-
+import locaionIcon from '../../public/icons/pin.webp';
+import phoneIcon from '../../public/icons/phone.webp';
 
 const StoreCard = ({
         storeHeader,
@@ -50,7 +48,7 @@ const StoreCard = ({
                                         <p className="owner-name">{item.contactperson}</p>
                                         <p className="store-details">{item.address}</p>
                                         <p className="store-phone">
-                                        <FaPhoneAlt /> <a href={`tel:${item.contactnumber}`}>{item.contactnumber}</a>
+                                        <img src={phoneIcon} alt="phone-icon" /> <a href={`tel:${item.contactnumber}`}>{item.contactnumber}</a>
                                         </p>
 
                                         {
@@ -68,7 +66,7 @@ const StoreCard = ({
                                                 </a>                            
                                             </div> : 
                                             <p>
-                                               <MdLocationPin />  {item.state}, {item.city}
+                                               <img src={locaionIcon} alt="location" /> {item.state}, {item.city}
                                             </p>
                                         }
                                     </div>

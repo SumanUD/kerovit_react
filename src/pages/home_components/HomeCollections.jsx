@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
-
-
+import rightArrow from '../../../public/icons/right_arrow.webp';
 
 export default function HomeCollections({homeData }){
   return (
@@ -22,11 +20,11 @@ export default function HomeCollections({homeData }){
               <img src={homeData?.collections?.aurum?.image} alt="A icon" loading="lazy"/>
 
               <button type="button" className="desktop-card-button">
-                  <Link to="/collection/aurum" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
+                  <Link to="/collection/aurum" className="showMoreBtn">Show More <img src={rightArrow} alt="right-icon" className="right_arrow" /></Link>
               </button>
               </div>
               <button type="button">
-              <Link to="/collection/aurum" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
+              <Link to="/collection/aurum" className="showMoreBtn">Show More <img src={rightArrow} alt="right-icon" className="right_arrow" /></Link>
               </button>
           </div>
           <div className="home_klassic">
@@ -39,11 +37,11 @@ export default function HomeCollections({homeData }){
               <img  src={homeData?.collections?.klassic?.image} alt="Single Product image"  loading="lazy"/>
 
               <button type="button" className="desktop-card-button">
-                  <Link to="/collection/klassic" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
+                  <Link to="/collection/klassic" className="showMoreBtn">Show More <img src={rightArrow} alt="right-icon" className="right_arrow" /></Link>
               </button>
               </div>
               <button type="button">
-              <Link to="/collection/klassic" className="showMoreBtn">Show More <BsArrowRight className="right_arrow"/></Link>
+              <Link to="/collection/klassic" className="showMoreBtn">Show More <img src={rightArrow} alt="right-icon" className="right_arrow" /></Link>
               </button>
           </div>
       </div>

@@ -1,10 +1,7 @@
-import { FaSearch } from "react-icons/fa";
+import searchIcon from '../../public/icons/search.webp';
 import StoreCard from "../components/storeCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-import { MdLocationPin } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
 
 export const LocateOurStore = () => {
 
@@ -192,8 +189,8 @@ export const LocateOurStore = () => {
                     <div className="store-locator-box">
                         <div className="search-bar">
                             <input type="text" placeholder="Pincode here.." onChange={(e)=>handleSearchInput(e.target.value)} value={search || ""} />
-                            <button className="search-btn">                                    
-                                <FaSearch />
+                            <button className="search-btn">                                                                    
+                                <img src={searchIcon} alt="search-icon" />
                             </button>                                                                                                
                             <div className="search-error">
                                 {searchErrorm}    

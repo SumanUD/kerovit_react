@@ -3,11 +3,11 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
-import { BsArrowRight } from "react-icons/bs";
+import bsrightArrow from '../../../public/icons/right_arrow.webp';
+import rightArrow from '../../../public/icons/right-arrow.webp';
+import leftArrow from '../../../public/icons/left-arrow.webp';
 
 import { Link } from "react-router-dom";
 
@@ -37,8 +37,29 @@ return `${day}${ordinal(day)} ${month} ${year}`;
 }
 
 import blogHeading from '../../../public/home_blog_heading.png'
+import axios from "axios";
 
-export default function HomeBlogs({LatestPost}){
+export default function HomeBlogs(){
+
+    const baseUrl = import.meta.env.VITE_API_BASEURL;
+    const [LatestPost, setLatestPost] = useState([]);
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                const res = await axios.get(`${baseUrl}/api/blogs`, {
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                setLatestPost(res.data.data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        getData();
+    }, []);
+
+
 
     const swiperRefBlog = useRef(null);
     const handlePrevBlogSlide = () => {
@@ -83,10 +104,15 @@ export default function HomeBlogs({LatestPost}){
         </Swiper>
 
         <div className="blog-swiper-button view_on_desktop">
-            <button type="button" className="swip_button" onClick={handlePrevBlogSlide}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
-            <button type="button" className="swip_button" onClick={handleNextBlogSlide}><FaChevronRight className="right_arrow swip_button_icon"/></button>
+            <button type="button" className="swip_button" onClick={handlePrevBlogSlide}>
+                <img src={leftArrow} alt="left-arrow" className="right_arrow swip_button_icon"/>
+                </button>
+            <button type="button" className="swip_button" onClick={handleNextBlogSlide}>
+                <img src={rightArrow} alt="right-arrow" className="right_arrow swip_button_icon"/>
+            </button>
         </div>
-        <button type="button" className="view_on_mobile" onClick={handleNextBlogSlide}>Swipe<BsArrowRight className="right_arrow "/></button>
+        <button type="button" className="view_on_mobile" onClick={handleNextBlogSlide}>Swipe
+            <img src={bsrightArrow} alt="right-arrow" className="right_arrow "/>            </button>
         <Link to={'/blog'}>
             <button className="btn-primary">All Blogs</button>
         </Link>

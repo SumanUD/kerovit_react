@@ -2,14 +2,15 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import CollectionData from '../../data/collection-data';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
+
+import bsrightArrow from '../../public/icons/right_arrow.webp';
+import rightArrow from '../../public/icons/right-arrow.webp';
+import leftArrow from '../../public/icons/left-arrow.webp';
 
 export const Collection = () => {
 
@@ -100,8 +101,8 @@ export const Collection = () => {
             }
 
             <div className="swiper_nav_buttons">
-              <button type="button" onClick={handlePrevSlideDesktop}><FaChevronLeft className="left_arrow"/></button>
-              <button type="button" onClick={handleNextSlideDesktop}><FaChevronRight className="right_arrow"/></button>
+              <button type="button" onClick={handlePrevSlideDesktop}><img src={leftArrow} alt="leftarrow" className="left_arrow"/></button>
+              <button type="button" onClick={handleNextSlideDesktop}><img src={rightArrow} alt="rightarrow" className="right_arrow"/></button>
             </div>
           </div>
           <div className="klassic_slider view_on_mobile">
@@ -134,7 +135,7 @@ export const Collection = () => {
               ))}
             </Swiper>
 
-            <button type="button" onClick={handleNextSlide}>Swipe <BsArrowRight className="right_arrow"/></button>
+            <button type="button" onClick={handleNextSlide}>Swipe <img src={bsrightArrow} alt="right-arrow" className="right_arrow" /></button>
           </div>          
         </main> : 
         <main className="klassic skeleton-load">

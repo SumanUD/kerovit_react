@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { IoFilter } from "react-icons/io5";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import filterIcon from '../../public/icons/setting.webp';
 
 export const PopularPost = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -99,8 +99,8 @@ const handleFilterSelection = (type, value) => {
 
         {/* Filter UI */}
         <div className="filterContainer" ref={filterRef}>
-          <div className="filterTop" onClick={() => setIsFilterOpen(!isFilterOpen)}>
-            <IoFilter className="filterIcon" />
+          <div className="filterTop" onClick={() => setIsFilterOpen(!isFilterOpen)}>            
+            <img src={filterIcon} alt="filter-icon" className="filterIcon" />
             <span className="selected-date">
               {selectedFilters.month || selectedFilters.year
                 ? `${selectedFilters.month || ""} ${selectedFilters.year || ""}`.trim()

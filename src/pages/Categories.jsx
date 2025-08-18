@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CateData from '../../data/cate-data';
 
@@ -8,8 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
+
+import rightArrow from '../../public/icons/right-arrow.webp';
+import leftArrow from '../../public/icons/left-arrow.webp';
 
 export const Categories = () => {
 
@@ -69,16 +70,20 @@ export const Categories = () => {
         }
 
         <div className="swiper_action_button view_on_desktop">
-          <button type="button" className="swip_button" onClick={handlePrevSlide}><FaChevronLeft className="right_arrow swip_button_icon"/></button>
-          <button type="button" className="swip_button" onClick={handleNextSlide}><FaChevronRight className="right_arrow swip_button_icon"/></button>            
+          <button type="button" className="swip_button" onClick={handlePrevSlide}>            
+            <img src={leftArrow} alt="left-arrow" className="right_arrow swip_button_icon"/>
+          </button>
+          <button type="button" className="swip_button" onClick={handleNextSlide}>            
+            <img src={rightArrow} alt="right-arrow" className="right_arrow swip_button_icon"/>
+          </button>            
         </div> 
 
-        <div className="swiper-button-prev">
-          <FaChevronLeft/>
-        </div>
-        <div className="swiper-button-next">
-          <FaChevronRight/>
-        </div>
+        <button className="swiper-button-prev">          
+          <img src={leftArrow} alt="leftarrow" />
+        </button>
+        <button className="swiper-button-next">          
+          <img src={rightArrow} alt="rightarrow" />
+        </button>
       </div>
     </div> 
   ) 
