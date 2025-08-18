@@ -38,6 +38,8 @@ export const LocateOurStore = () => {
                 setWorldType(world);
                 setExperienceType(experience);                
 
+                console.log(theData)
+
             }catch(err){
                 console.log(err)
             }
