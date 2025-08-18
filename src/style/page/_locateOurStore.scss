@@ -396,7 +396,11 @@
                                 color: #003253;
 
                             }
-
+                            img{
+                                height: 30px;
+                                width: 30px;
+                                filter: brightness(0) saturate(100%) invert(15%) sepia(93%) saturate(815%) hue-rotate(170deg) brightness(96%) contrast(105%);
+                            }
                         }
 
                     }

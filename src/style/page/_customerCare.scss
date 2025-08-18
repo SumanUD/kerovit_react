@@ -43,10 +43,12 @@
           font-size: 1.8rem;
           text-transform: capitalize;
           margin-bottom: 1rem;
-
-          svg {
-            color: #000;
+          img{
+            height: 35px;
+            width: 35px;
+            filter: brightness(0) saturate(100%) invert(15%) sepia(93%) saturate(815%) hue-rotate(170deg) brightness(96%) contrast(105%);
           }
+
         }
 
         .title {
@@ -88,6 +90,11 @@
       align-items: center;
       gap: 0.5rem;
       color: #333;
+      img{
+        height: 35px;
+        width: 35px;
+        filter: brightness(0) saturate(100%) invert(15%) sepia(93%) saturate(815%) hue-rotate(170deg) brightness(96%) contrast(105%);
+      }
     }
 
     .title {
