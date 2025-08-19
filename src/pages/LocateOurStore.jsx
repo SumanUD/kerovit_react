@@ -21,7 +21,8 @@ export const LocateOurStore = () => {
     const [message, setMessage] = useState('');
     const [searchErrorm, setSerarchError] = useState("");
 
-    const storeUrl = import.meta.env.VITE_API_STORE;
+    const gcKey = import.meta.env.VITE_GC_KEY;
+    const storeUrl = import.meta.env.VITE_API_STORE;    
     useEffect(()=>{
         const fetchData = async () => {
             try{
@@ -47,7 +48,6 @@ export const LocateOurStore = () => {
         fetchData();
     }, [])   
         
-
     function filterState(state){
         return allType.filter(obj => obj.state == state)        
     }
@@ -109,7 +109,6 @@ export const LocateOurStore = () => {
         setExperienceType(experience);  
     }, [newList])
 
-
     const [success, setSuccess] = useState('')
     const [btnLoading, setBtnLoading] = useState(false)
     const [apiError, setApiError] = useState({})
@@ -134,34 +133,31 @@ export const LocateOurStore = () => {
         setSuccess("")  
         setApiError({})
         async function submitForm(){
-        try{
-            const res = await axios.post(baseUrl+'/api/contact', formData , {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            });        
-            generateNumber()             
-            e.target.check_human.value = ''
-            setSuccess("✅ Message sent successfully!")         
-            setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            state: '',
-            city: '',
-            message: '', 
-            })
-        }catch(err){
-            console.log(err.response)
-            setApiError(err.response.data.errors)
-            setSuccess("❌ Failed to send message!") 
-        }finally{
-            setBtnLoading(false)
-        }
+            try{
+                await axios.post(baseUrl+'/api/contact', formData , {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });                                    
+                setSuccess("✅ Message sent successfully!")         
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    state: '',
+                    city: '',
+                    message: '', 
+                })
+            }catch(err){
+                console.log(err.response)
+                setApiError(err.response.data.errors)
+                setSuccess("❌ Failed to send message!") 
+            }finally{
+                setBtnLoading(false)
+            }
         }        
         setBtnLoading(true)
-        submitForm()
-        setError('')            
+        submitForm()            
     } 
 
     return (
@@ -308,71 +304,18 @@ export const LocateOurStore = () => {
                             </div>
                             <div className="google_capta">
                                 <ReCAPTCHA
-                                sitekey='6Lc_WKsrAAAAAIzleSx7KxbhoSUEXIvqARUnX49n'
+                                sitekey={gcKey}
                                 onChange={(val)=> setCapValue(val)}
                                 />
                             </div>
-                            <button type="submit" className="submit-btn" disabled={btnLoading || !capValue } >{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
+                            <button type="submit" className="submit-btn" disabled={btnLoading || !capValue }>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>                            
                             {success && (
                                 <p style={{marginTop:'25px'}}>
                                     {success}
                                 </p>
                             )}
                         </form>
-                    </div>
-
-                    {/* {
-                        newList.length > 0  ? 
-                        <div className="all-location-list">
-                            <h3 className="heading">{message}</h3>
-                            <div className="grid-items">
-                                {
-                                newList.map((item, index)=>(
-                                    <div key={index} className="card">
-                                        <p className="name">{item.dealername}</p>
-                                        <p className="person">{item.contactperson}</p>                                        
-                                        <p><MdLocationPin /> {item.address}</p>
-                                        <p><FaPhoneAlt /> {item.contactnumber}</p>                                        
-                                        {
-                                            item.google_link != "" &&
-                                            <a href={item?.google_link}>
-                                                <div className="direction-btn">Get Direction <img src="/public/locate-our-store/arrow-top-right.png" alt="icon" className="arrow-top-right"/></div>
-                                            </a>
-                                        }
-                                    </div>
-                                ))
-                            }
-                            </div>
-                        </div> : 
-                        <div className="location-list">                        
-                            {
-                                worldType.length > 0 && 
-                                <StoreCard
-                                    storeHeader="/locate-our-store/store1Header.png"
-                                    storeImage="/locate-our-store/store1.png"
-                                    location={worldType}                            
-                                />
-                            }
-
-                            {
-                                studioType.length > 0 && 
-                                <StoreCard
-                                    storeHeader="/locate-our-store/store2Header.png"
-                                    storeImage="/locate-our-store/store2.png"
-                                    location={studioType}
-                                />
-                            }
-
-                            {
-                                experienceType.length > 0 &&
-                                <StoreCard
-                                    storeHeader="/locate-our-store/store3Header.png"
-                                    storeImage="/locate-our-store/store3.png"
-                                    location={experienceType}
-                                />
-                            }
-                        </div>                    
-                    } */}
+                    </div>                    
                 </div>
 
             </main>            

@@ -1,42 +1,61 @@
 import { useState, useEffect } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import axios from 'axios';
 
 export const Warranty = () => {
   const [formData, setFormData] = useState({
     name: '',
-    mobile: '',
-    address: '',
+    email: '',
+    phone: '',
     state: '',
     city: '',
-    district: '',
-    pincode: '',
-    check_human: '',
-  });
+    message: '',  
+  })
 
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
-  const [numError, setNumError] = useState('');
-  const [success, setSuccess] = useState('');
+  const baseUrl = import.meta.env.VITE_API_BASEURL;
+  const [capValue, setCapValue] = useState(null)
+  const gcKey = import.meta.env.VITE_GC_KEY;
+  const [success, setSuccess] = useState('')
+  const [btnLoading, setBtnLoading] = useState(false)
+  const [apiError, setApiError] = useState({})
 
-  useEffect(() => {
-    setNum1(Math.floor(Math.random() * 10));
-    setNum2(Math.floor(Math.random() * 10));
-  }, []);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) =>{
+    setFormData({
+    ...formData,
+    [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const total = num1 + num2;
-    if (parseInt(formData.check_human) !== total) {
-      setNumError('Incorrect answer. Please try again.');
-      return;
-    }
-
-    setNumError('');
-    // Handle your form submission logic here (e.g., API call)
-    setSuccess('Warranty activated successfully!');
+    e.preventDefault()            
+    setSuccess("")  
+    setApiError({})
+    async function submitForm(){
+      try{
+        await axios.post(baseUrl+'/api/contact', formData , {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });                                    
+        setSuccess("✅ Message sent successfully!")         
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          state: '',
+          city: '',
+          message: '', 
+        })
+      }catch(err){
+        console.log(err)
+        setApiError(err.response.data.errors)
+        setSuccess("❌ Failed to send message!") 
+      }finally{
+        setBtnLoading(false)
+      }
+    }        
+    setBtnLoading(true)
+    submitForm()    
   };
 
   return (
@@ -67,13 +86,13 @@ export const Warranty = () => {
             </label>
 
             <label>
-              Mobile*
-              <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} required />
+              Mobile*<span style={{color:'red', marginLeft:'15px'}}>{apiError.phone}</span>
+              <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
             </label>
 
             <label>
-              Address*
-              <input type="text" name="address" value={formData.address} onChange={handleChange} required />
+              Email*
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required />
             </label>
 
             <label>
@@ -124,23 +143,20 @@ export const Warranty = () => {
               <input type="text" name="city" value={formData.city} onChange={handleChange} required />
             </label>
 
-            <label>
-              District*
-              <input type="text" name="district" value={formData.district} onChange={handleChange} required />
-            </label>
 
             <label>
-              Pincode
-              <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} />
+              Message*              
+              <textarea name="message" value={formData.message} onChange={handleChange} ></textarea>
             </label>
 
-            <label>
-              What is {num1} + {num2}? 
-              <span style={{ color: 'red', marginLeft: '10px' }}>{numError}</span>
-              <input type="number" name="check_human" value={formData.check_human} onChange={handleChange} required />
-            </label>
-
-            <button type="submit" className="submit-btn">SUBMIT</button>
+            <div className="google_capta">
+              <ReCAPTCHA
+                sitekey={gcKey}
+                onChange={(val)=> setCapValue(val)}
+              />
+            </div>
+            
+            <button type="submit" className="submit-btn" disabled={btnLoading || !capValue }>SUBMIT</button>
 
             {success && (
               <p style={{ marginTop: '12px', color: 'green' }}>

@@ -93,4 +93,25 @@ a{
     }
   }
 
+.btn-loader {
+    display: block;
+    height: 30px;
+    width: 100px;
+    margin: 0 auto;
+    aspect-ratio: 1/1;
+    --_g: no-repeat radial-gradient(farthest-side,#fff 80%,#ffff);
+    background: var(--_g), var(--_g), var(--_g);
+    background-size: 15% 15%;
+    animation: l17 1s infinite;
+    pointer-events: none;          
+}
+@keyframes l17{ 
+    0%     {background-position: 0% -100%,50% -100%,100% -100%}
+    16.67% {background-position: 0%   50%,50% -100%,100% -100%}
+    33.33% {background-position: 0%   50%,50%   50%,100% -100%}
+    45%,55%{background-position: 0%   50%,50%   50%,100%   50%}
+    66.67% {background-position: 0%  200%,50%   50%,100%   50%}
+    83.33% {background-position: 0%  200%,50%  200%,100%   50%}
+    100%   {background-position: 0%  200%,50%  200%,100%  200%}
+}
 

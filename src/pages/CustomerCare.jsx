@@ -11,6 +11,7 @@ export const CustomerCare = () => {
   const [customerData, setCustomerData] = useState({})
   const [capValue, setCapValue] = useState(null)
   const customerURL = import.meta.env.VITE_API_CUSTOMERCARE;
+  const gcKey = import.meta.env.VITE_GC_KEY;  
   useEffect(() => {
     async function getData() {
       try {
@@ -28,7 +29,6 @@ export const CustomerCare = () => {
 
     getData();
   }, []);
-
 
   const [success, setSuccess] = useState('')
   const [btnLoading, setBtnLoading] = useState(false)
@@ -48,6 +48,7 @@ export const CustomerCare = () => {
       [e.target.name]: e.target.value
     })
   }
+  
   function handleSubmit(e) {
     e.preventDefault()
     setSuccess("")
@@ -58,9 +59,7 @@ export const CustomerCare = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-        });        
-        generateNumber()             
-        e.target.check_human.value = ''
+        });                             
         setSuccess(res.data.message)               
         setFormData({
           name: '',
@@ -71,8 +70,7 @@ export const CustomerCare = () => {
           message: '', 
         })
         setSuccess("✅ Message sent successfully!")     
-      }catch(err){
-        console.log(err.response)
+      }catch(err){        
         setApiError(err.response.data.errors)
         setSuccess("❌ Failed to send message!") 
       }finally{
@@ -81,9 +79,7 @@ export const CustomerCare = () => {
     }
 
       setBtnLoading(true)
-      submitForm()
-      setError('')            
-    console.log(formData)
+      submitForm()           
   } 
 
   return (
@@ -157,12 +153,12 @@ export const CustomerCare = () => {
             <input type="text" id="name" name="name" value={formData.name} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
-            <label htmlFor="mobile">Mobile* <span style={{ color: 'red', marginLeft: '15px' }}>{apiError.phone}</span></label>
-            <input type="tel" id="mobile" name="phone" value={formData.phone} onChange={e => handleChange(e)} required />
-          </div>
-          <div className="form-group">
             <label htmlFor="email">Email*</label>
             <input type="email" id="email" name="email" value={formData.email} onChange={e => handleChange(e)} required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="mobile">Mobile* <span style={{ color: 'red', marginLeft: '15px' }}>{apiError.phone}</span></label>
+            <input type="tel" id="mobile" name="phone" value={formData.phone} onChange={e => handleChange(e)} required />
           </div>
           <div className="form-group">
             <label htmlFor="state">State*</label>
@@ -217,7 +213,7 @@ export const CustomerCare = () => {
           </div>
           <div className="google_capta">
             <ReCAPTCHA
-              sitekey='6Lc_WKsrAAAAAIzleSx7KxbhoSUEXIvqARUnX49n'
+              sitekey={gcKey}
               onChange={(val)=> setCapValue(val)}
             />
           </div>

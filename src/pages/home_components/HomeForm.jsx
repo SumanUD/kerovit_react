@@ -5,11 +5,11 @@ export const HomeForm = () => {
 
     const baseUrl = import.meta.env.VITE_API_BASEURL;
     const [capValue, setCapValue] = useState(null)
+    const gcKey = import.meta.env.VITE_GC_KEY;
 
-    const [success, setSuccess] = useState('')
-      const [numError, setError]= useState('')
-      const [btnLoading, setBtnLoading] = useState(false)
-      const [apiError, setApiError] = useState({})
+    const [success, setSuccess] = useState('')      
+    const [btnLoading, setBtnLoading] = useState(false)
+    const [apiError, setApiError] = useState({})
 
     const [formData, setFormData] = useState({
         name: '',
@@ -30,37 +30,34 @@ export const HomeForm = () => {
         setSuccess("")  
         setApiError({})
         async function submitForm(){
-        try{
-            const res = await axios.post(baseUrl+'/api/contact', formData , {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });        
-            generateNumber()             
-            e.target.check_human.value = ''
-            setSuccess(res.data.message)               
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                state: '',
-                city: '',
-                message: '', 
-            })
-            setSuccess("✅ Message sent successfully!")     
-        }catch(err){
-            console.log(err)
-            setApiError(err.response.data.errors)
-            setSuccess("❌ Failed to send message!") 
-        }finally{
-            setBtnLoading(false)        
-        }
+            try{
+                await axios.post(baseUrl+'/api/contact', formData , {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });        
+                
+                setSuccess("✅ Message sent successfully!")               
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    state: '',
+                    city: '',
+                    message: '', 
+                })
+                setSuccess("✅ Message sent successfully!")     
+            }catch(err){                
+                setApiError(err.response.data.errors)
+                setSuccess("❌ Failed to send message!") 
+            }finally{
+                setBtnLoading(false)        
+            }
         }
 
        
         setBtnLoading(true)
-        submitForm()
-        setError('')                     
+        submitForm()                         
     }   
 
   return (
@@ -77,7 +74,7 @@ export const HomeForm = () => {
             <input type="text" name="message" placeholder="Message  |" onChange={e=>handleChange(e)} value={formData.message} required/>
             <div className="google_capta">
                 <ReCAPTCHA
-                sitekey='6Lc_WKsrAAAAAIzleSx7KxbhoSUEXIvqARUnX49n'
+                sitekey={gcKey}
                 onChange={(val)=> setCapValue(val)}
                 />
             </div>
