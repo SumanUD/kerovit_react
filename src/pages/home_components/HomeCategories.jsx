@@ -14,7 +14,7 @@ import leftArrow from '../../../public/icons/left-arrow.webp';
 import categoryHeading from '../../../public/categories_heading.png';
 
 
-export default function HomeCategories({collectionSlide, homeData}){
+export default function HomeCategories({collectionSlide, homeData}){    
 
     const [activeIndex, setActiveIndex] = useState(0);
     const handleTextClick = (index) => {
@@ -90,28 +90,28 @@ export default function HomeCategories({collectionSlide, homeData}){
                     onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                 >
                     {Array.isArray(collectionSlide) && collectionSlide.map((product) => (
-                    <SwiperSlide key={product.id}>
-                        <div className="inside text-center">
-                        <Link to={product.link}>
-                            <img 
-                                src={`${product.img}`} 
-                                alt={product.name} 
-                                height={600} width={400} 
-                                loading="lazy" 
-                                onLoad={()=>addLoadedImg(product.id)}
-                            />
-                        </Link>
-                        <div className="background-layer"></div>
-                        <div className="pop-on-hover">
-                            <p>{product.name}</p>
+                        <SwiperSlide key={product.id}>
+                            <div className="inside text-center">
                             <Link to={product.link}>
-                            <button type="button" className="showMoreBtn">Show More 
-                                <img src={bsrightArrow} alt="right-arrow" className="right_arrow"/>                                
-                            </button>
+                                <img 
+                                    src={`${product.img}`} 
+                                    alt={product.name} 
+                                    height={600} width={400} 
+                                    loading="lazy" 
+                                    onLoad={()=>addLoadedImg(product.id)}
+                                />
                             </Link>
-                        </div>
-                        </div>
-                    </SwiperSlide>
+                            <div className="background-layer"></div>
+                            <div className="pop-on-hover">
+                                <p>{product.name}</p>
+                                <Link to={product.link}>
+                                <button type="button" className="showMoreBtn">Show More 
+                                    <img src={bsrightArrow} alt="right-arrow" className="right_arrow"/>                                
+                                </button>
+                                </Link>
+                            </div>
+                            </div>
+                        </SwiperSlide>
                     ))}
                 </Swiper>
             </div>

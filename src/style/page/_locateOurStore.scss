@@ -212,12 +212,20 @@
         max-width: 500px;
         margin: 60px auto;
         padding: 0 20px;
-
+        display: flex;
+        align-items: center;
         h2{
-            margin-bottom: 25px;
+            width: 30%;
+            margin: 0;
+            margin-bottom: 25px;   
+            span{
+                font-weight: 900;
+            }
         }
 
+
         .store-form {
+            width: 60%;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -278,6 +286,17 @@
                 }
             }
         }
+
+        @media (width < 800px){
+            flex-direction: column;
+            h2{
+                width: 100%;
+                text-align: center;
+            }
+            .store-form{
+                width: 100%;
+            }
+        }
     }
 
     
@@ -305,14 +324,13 @@
                 // position: sticky;
                 // top: 120px;
 
-                max-width: 700px;
+                max-width: 1200px;
                 width: 100%;
                 margin-top: 70px;     
                 
                 h2{
                     font-size: 2.5rem;
-                    font-weight: 400 !important;
-                    width: fit-content;
+                    font-weight: 400 !important;                    
                     margin: 0 auto 25px;
                     color: #27435e;
                 }
@@ -328,6 +346,10 @@
                     column-gap: 40px;  
                     padding-top: 90px;   
                     overflow: hidden;    
+
+                    .od1{
+                        order: 1;
+                    }
 
                     .store-images{
                         width: 100%;
@@ -454,5 +476,21 @@
             }
         } 
         
+    }
+
+    .store-main-heading{
+        text-align: center;
+        margin-bottom: 45px;
+        h2{
+            font-size: clamp(2rem, 25vw, 4rem);
+            font-weight: 900;
+            color: #003253;
+            span{
+                font-weight: 300;
+            }
+        }
+        p{
+            color: gray;
+        }
     }
 }

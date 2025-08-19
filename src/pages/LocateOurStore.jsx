@@ -205,15 +205,23 @@ export const LocateOurStore = () => {
                 </div>
 
                 <div className="store-main-contents">
-
+                    <div className="store-main-heading">
+                        <h2><span>Our</span> Showrooms</h2>
+                        <p>
+                            The best way to understand a bathroom space is to step inside one. That's why Kerovit has created a range of showrooms across
+                            the country. Each showroom is designed to help you explore, experience and visualise how our products
+                            bring your desires for beautiful spaces to life.
+                        </p>
+                    </div>
                     <div className="location-list">      
                         {message.length > 5 && <h3 className="heading">{message}</h3>    }      
-                                                {
+                        {
                             experienceType.length > 0 &&
                             <StoreCard
                                 storeHeader="/locate-our-store/store3Header.png"
                                 storeImage="/locate-our-store/store3.png"
                                 location={experienceType}
+                                order={'odd'}    
                             />
                         }        
                         {
@@ -221,23 +229,23 @@ export const LocateOurStore = () => {
                             <StoreCard
                                 storeHeader="/locate-our-store/store1Header.png"
                                 storeImage="/locate-our-store/store1.png"
-                                location={worldType}                            
+                                location={worldType}    
+                                order={'even'}                        
                             />
                         }
-
                         {
                             studioType.length > 0 && 
                             <StoreCard
                                 storeHeader="/locate-our-store/store2Header.png"
                                 storeImage="/locate-our-store/store2.png"
                                 location={studioType}
+                                order={'odd'}    
                             />
-                        }
-
+                        }                        
                     </div>  
 
                     <div className="store-form-container">
-                        <h2>Send Us Your Query</h2>                        
+                        <h2>Send Us <br /><span>Your Query</span></h2>                        
                         <form onSubmit={e=>handleSubmit(e)} className="store-form">
                             <div className="form-group">
                                 <label htmlFor="name">Name*</label>

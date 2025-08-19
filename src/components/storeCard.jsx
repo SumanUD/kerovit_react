@@ -9,14 +9,15 @@ import phoneIcon from '../../public/icons/phone.webp';
 const StoreCard = ({
         storeHeader,
         storeImage,
-        location
+        location,
+        order
     }) => {
     if (!location || location.length < 1) return null;
     
     return (
         <main className="all-store-card">
             <div className="store-card">
-                <div className="store-images">
+                <div className={`store-images ${order == 'even' ? 'od1' : ''}`}>
                     {
                         location[0].dealertype == 'Experience Center' ? 
                         <div className="storeHeader text-header"><h2>KEROVIT</h2> <h2>|</h2> {location[0].dealertype}</div> :

@@ -83,7 +83,7 @@ const CateData = [
     ]        
   },
   {
-    page: "shower"  ,
+    page: "showers"  ,
     items: [    
         {
           aurumImages:[
@@ -332,7 +332,7 @@ const CateData = [
     ]    
   },
   {
-    page: "bathroomFurniture",
+    page: "furniture",
     items: [    
        {
           aurumImages:[
