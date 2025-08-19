@@ -4,9 +4,12 @@ import download from '../../public/icons/download.webp';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import ReCAPTCHA from 'react-google-recaptcha';
+
 export const CustomerCare = () => {
 
   const [customerData, setCustomerData] = useState({})
+  const [capValue, setCapValue] = useState(null)
   const customerURL = import.meta.env.VITE_API_CUSTOMERCARE;
   useEffect(() => {
     async function getData() {
@@ -28,18 +31,8 @@ export const CustomerCare = () => {
 
 
   const [success, setSuccess] = useState('')
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
-  const [numError, setError] = useState('')
   const [btnLoading, setBtnLoading] = useState(false)
   const [apiError, setApiError] = useState({})
-  const generateNumber = () =>{
-    setNum1(Math.floor(Math.random() * 100) + 1);
-    setNum2(Math.floor(Math.random() * 100) + 1);
-  }
-  useEffect(() => {
-    generateNumber()
-  },[])
   const baseUrl = import.meta.env.VITE_API_BASEURL;
   const [formData, setFormData] = useState({
     name: '',
@@ -87,15 +80,9 @@ export const CustomerCare = () => {
       }
     }
 
-    if (e.target.check_human.value == (num1 + num2)) {
       setBtnLoading(true)
       submitForm()
       setError('')            
-    }else{
-      setError('Incorrect!!!')
-      setSuccess(false) 
-    }
-
     console.log(formData)
   } 
 
@@ -228,12 +215,13 @@ export const CustomerCare = () => {
             <label htmlFor="message">Message*</label>
             <textarea type="text" id="message" name="message" value={formData.message} onChange={e => handleChange(e)} required />
           </div>
-          <div className="form-group">
-            <label htmlFor="human-check">What is {num1} + {num2}? <span style={{ color: 'red', marginLeft: '15px' }}>{numError}</span></label>
-            <input type="number" id="human-check" name="check_human" required />
+          <div className="google_capta">
+            <ReCAPTCHA
+              sitekey='6Lc_WKsrAAAAAIzleSx7KxbhoSUEXIvqARUnX49n'
+              onChange={(val)=> setCapValue(val)}
+            />
           </div>
-
-          <button type="submit" className="submit-btn" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
+          <button type="submit" className="submit-btn" disabled={btnLoading || !capValue }>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
           {success && (
             <p style={{marginTop:'12px'}}>
               {success}

@@ -21,6 +21,12 @@ $tertiary-bg: #ffff;
         margin: 0 auto;
         padding: 0 15px;
 
+        @media(width < 800px){
+            p{
+                font-size: 11px ;
+            }
+        }
+
         .swiper-button-prev, .swiper-button-next{
           color: $primary-bg;
           border: 2px solid $primary-bg;
@@ -73,8 +79,10 @@ $tertiary-bg: #ffff;
         transform: scale(0.4) !important;        
         opacity: .5;
         filter: blur(5px);
-        width: 80%;
-        
+        width: 80%;       
+        p{
+            font-size: 11px;
+        } 
         &.swiper-slide-active{            
             transform: scale(1) !important;          
             z-index: 999;   
@@ -126,6 +134,9 @@ $tertiary-bg: #ffff;
                     }
                 }
             }
+        }
+        @media (width < 800px){
+            transform: scale(1) !important;        
         }
     }
     .swiper-slide__content {
