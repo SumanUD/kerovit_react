@@ -221,6 +221,9 @@ export const LocateOurStore = () => {
                                 storeHeader="/locate-our-store/store3Header.png"
                                 storeImage="/locate-our-store/store3.png"
                                 location={experienceType}
+                                description="These brand-owned destinations are ment for exploration of the World od Desires.
+                                With spacious layouts, Kerocit Experience Centers display our full range of products in realistic bathroom
+                                settings. You can walk though different bathroom styles, see how products work, and ge a genuine sense of how they fit into your life, without any pressure to buy."
                                 order={'odd'}    
                             />
                         }        
@@ -230,7 +233,8 @@ export const LocateOurStore = () => {
                                 storeHeader="/locate-our-store/store1Header.png"
                                 storeImage="/locate-our-store/store1.png"
                                 location={worldType}    
-                                order={'even'}                        
+                                order={'even'}           
+                                description="Owned by our dealer partners and covering at least 1,500 sq. ft., Kerovit World features an extensive showcase of our collections.These large spaces combine product discovery with consultation and purchase, giving you the freedom to explore, ask questions, and choose the right option for your home."             
                             />
                         }
                         {
@@ -240,6 +244,7 @@ export const LocateOurStore = () => {
                                 storeImage="/locate-our-store/store2.png"
                                 location={studioType}
                                 order={'odd'}    
+                                description ="Compact yet thorough, Kerovit Studios are dealer-owned spaces of 750 sq. ft. designed to bring the brand closer to you. They offer a carefully selected range of products, allowing you to browse, interact, and make purchasing decisions at your own pace, with expert assistance available."
                             />
                         }                        
                     </div>  

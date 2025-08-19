@@ -10,21 +10,24 @@ const StoreCard = ({
         storeHeader,
         storeImage,
         location,
-        order
+        order,
+        description
     }) => {
     if (!location || location.length < 1) return null;
     
     return (
         <main className="all-store-card">
-            <div className="store-card">
-                <div className={`store-images ${order == 'even' ? 'od1' : ''}`}>
-                    {
-                        location[0].dealertype == 'Experience Center' ? 
-                        <div className="storeHeader text-header"><h2>KEROVIT</h2> <h2>|</h2> {location[0].dealertype}</div> :
-                        <img src={storeHeader} alt="Store header" className="storeHeader" />
-                    }
-    
-                    
+            <div className="store-card-head">
+                {
+                    location[0].dealertype == 'Experience Center' ? 
+                    <div className="storeHeader text-header"><h2>KEROVIT</h2> <h2>|</h2> <p>{location[0].dealertype}</p></div> :
+                    <img src={storeHeader} alt="Store header" className="storeHeader" />
+                }
+                <p>{description}</p>
+            
+            </div>
+            <div className="store-card">                
+                <div className={`store-images ${order == 'even' ? 'od1' : ''}`}>                   
                     <img src={storeImage} alt="Store preview" className="store-image" />
                 </div>
                 <Swiper 
