@@ -4,7 +4,7 @@ $color_1: #fff;
     404 page
 =======================*/
 .page_404 {
-	padding: 40px 0;
+	padding: 40px 0 120px;
 	background: linear-gradient(to bottom, #888686 1%, white 18%, white 100%);
 	img {
 		width: 100%;
@@ -14,12 +14,22 @@ $color_1: #fff;
         width: 100%;
 
         .four_zero_four_bg {
-            margin-top: 120px;
-            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-            height: 400px;
+            margin-top: 120px;            
+            height: clamp(150px, 25vw, 250px);
             background-position: center;
+            margin-bottom: 45px;
             h1 {
-                font-size: 80px;
+                font-size: clamp(6rem, 25vw, 12rem);
+                position: relative;
+                &::after{
+                    content: '';
+                    height: 5px;
+                    width: 100%;
+                    background: #000;
+                    position: absolute;
+                    bottom: -10%;
+                    left: 0;
+                }
             }
             h3 {
                 font-size: 80px;

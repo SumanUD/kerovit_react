@@ -40,7 +40,7 @@ export default function HomeSecondBanner(){
                   <a href={item.pdf_link} target="_blank">{item.title}</a>
                 </div>
               ))
-            }
+            }            
 
           </div>
         </div>
