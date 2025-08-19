@@ -1271,7 +1271,7 @@ $text-color: #757575;
         }
       }
 
-      a {
+      a:nth-of-type(2) {
         background-color: #fff;
         display: inline-block;
         text-transform: uppercase;

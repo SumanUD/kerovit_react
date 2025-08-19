@@ -38,7 +38,8 @@ export const Catelogue = () => {
               <div className="the_catelogue" key={index}>                
                 <a href={item.pdf_link} target="_blank">
                   <img src={item.thumbnail_image} alt="" loading="lazy" />
-                </a>                                   
+                </a>  
+                <a href={item.pdf_link} target="_blank">{item.title}</a>                                 
               </div>
             ))
           }
