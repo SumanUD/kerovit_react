@@ -34,7 +34,9 @@ export default function HomeSecondBanner(){
             {            
               catelogueData?.categories?.map((item, index)=>(
                 <div className="the_catelogue" key={index}>
-                  <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  <a href={item.pdf_link} target="_blank">
+                    <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  </a> 
                   <a href={item.pdf_link} target="_blank">{item.title}</a>
                 </div>
               ))
@@ -51,7 +53,9 @@ export default function HomeSecondBanner(){
             {            
               catelogueData?.categories?.map((item, index)=>(
                 <div className="the_catelogue" key={index}>
-                  <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  <a href={item.pdf_link} target="_blank">
+                    <img src={item.thumbnail_image} alt="" loading="lazy" />
+                  </a>                  
                   <a href={item.pdf_link} target="_blank">{item.title}</a>
                 </div>
               ))

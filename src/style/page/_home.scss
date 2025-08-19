@@ -1120,7 +1120,7 @@ $text-color: #757575;
     .catalogue {
       // position: absolute;
       text-align: center;
-      a {
+      a:nth-of-type(2)  {
         background-color: #fff;
         display: inline-block;
         text-transform: uppercase;

@@ -36,7 +36,7 @@
             position: absolute;
             text-align: center;
 
-            a {
+            a:nth-of-type(2) {
                 background-color: #fff;
                 display: inline-block;
                 text-transform: uppercase;
@@ -49,16 +49,16 @@
                 font-size: 9.854px;
 
                 &::after {
-                content: "";
-                display: inline-block;
-                width: 16px;
-                height: 8px;
-                background-image: url('/icons/download-icon.png');
-                background-size: contain;
-                background-repeat: no-repeat;
-                margin-left: 8px;
-                vertical-align: middle;
-                margin-bottom: 3px;
+                  content: "";
+                  display: inline-block;
+                  width: 16px;
+                  height: 8px;
+                  background-image: url('/icons/download-icon.png');
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  margin-left: 8px;
+                  vertical-align: middle;
+                  margin-bottom: 3px;
                 }
             }
         }
@@ -92,11 +92,11 @@
                 padding-bottom: 40px;
 
                 .the_catelogue {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
 
-                img {
+                  img {
                     height: 430px;
                     width: 320px;
                     object-fit: cover;
@@ -104,18 +104,18 @@
                     @media (min-width: 1600px) {
                     height: 500px;
                     }
-                }
+                  }
 
-                a {
+                  a {
                     font-size: 12px;
                     padding: 6px 14px;
                     margin-top: 10px;
 
                     &::after {
-                    width: 18px;
-                    height: 10px;
+                      width: 18px;
+                      height: 10px;
                     }
-                }
+                  }
                 }
             }
         }
