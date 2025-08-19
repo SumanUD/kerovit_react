@@ -916,7 +916,7 @@ $text-color: #757575;
 
     .inside_banner_content {
       position: absolute;
-      top: 77%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -931,8 +931,8 @@ $text-color: #757575;
         font-size: 25px;
       }
 
-      p {
-        color: #fff;
+      p {      
+        color: white;
         font-size: 16px;
         line-height: 1.6;
         margin-bottom: 24px;
@@ -997,11 +997,15 @@ $text-color: #757575;
     background-repeat: no-repeat;
     position: relative; // Ensures absolute positioning inside works
 
-    .inside_banner_content {      
+    .inside_banner_content { 
       display: flex;
-      flex-direction: column;
+        flex-direction: column;     
       align-items: center;
-      justify-content: center;            
+      justify-content: center;         
+      @media (width < 800px){    
+        backdrop-filter: blur(8px);
+        background: rgba(225, 225, 225, .4);            
+      }
 
       h2 {
         text-transform: uppercase;
@@ -1014,7 +1018,7 @@ $text-color: #757575;
       }
 
       p {
-        color: white;
+        color: black;
         font-size: 12px;
         line-height: 1.6;        
         font-family: 'Sinkin Sans 300 Light', sans-serif;
