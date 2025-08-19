@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      {pathname == '/' ? <Loader showLoader={show}/>  : ''}
+      {/* {pathname == '/' ? <Loader showLoader={show}/>  : ''} */}
       <Header/>
         <AllRoutes/>    
             
