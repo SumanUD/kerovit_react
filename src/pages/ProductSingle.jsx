@@ -22,7 +22,7 @@ export const ProductSingle = () => {
     const location = useLocation();
     const rangeId = location.state.range;    
 
-    console.log(rangeId)
+    console.log(location.state)
 
     const toggleSection = (sectionIndex) => {
         setOpenSection(openSection === sectionIndex ? null : sectionIndex);
@@ -36,6 +36,7 @@ export const ProductSingle = () => {
 
     const baseUrl = import.meta.env.VITE_API_BASEURL;
 
+    const {pathname} = useLocation()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -56,13 +57,13 @@ export const ProductSingle = () => {
         }
 
         fetchData()
-    }, [])
+    }, [pathname])
 
     function handleVariant(code) {
         const variant = allVariants.find(obj => obj.product_code == code)
         setSelectedImage(variant.product_picture)
         setSingleProduct(variant)
-    }
+    }    
 
     return (
         <>

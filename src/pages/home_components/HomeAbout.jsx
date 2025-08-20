@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import AboutHeading from '../../../public/aboutus_heading.png';
 
 export default function HomeAbout({homeData}){
+
+  console.log(homeData)
+
   return (
     <>
         <div className="home_aboutus desktop_view">
@@ -10,7 +13,7 @@ export default function HomeAbout({homeData}){
           <div className="inside_banner_content">
             {/* <h2>about us</h2> */}          
             <img src={AboutHeading} alt="" className="aboutus_heading" loading="lazy"/>                    
-            <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>        
+            <div dangerouslySetInnerHTML={{__html: homeData?.about_us?.description}}/>        
             <Link to="/about">
               <button className="read_more">
                 read more 
@@ -24,7 +27,7 @@ export default function HomeAbout({homeData}){
           <div className="inside_banner_content">
             {/* <h2>about us</h2> */}
             <img src={AboutHeading} alt="" className="aboutus_heading" loading="lazy"/>
-            <div dangerouslySetInnerHTML={{__html: homeData?.store?.description}}/>        
+            <div dangerouslySetInnerHTML={{__html: homeData?.about_us?.description}}/>        
             <Link to="/about">
               <button className="read_more">
                 read more 

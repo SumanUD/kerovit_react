@@ -216,7 +216,7 @@ useEffect(() => {
                     searchArr.slice(0, itemsToShow).map((item, index)=>(
                     <Link                     
                     to={`/collection/${collectionType[item.collection_id]}/${categoryType[item.category_id]}/single/${item.product_code}`} 
-                    state={{ rangeId: item.range_id }}                  
+                    state={{ range: item.range_id }}                  
                     key={index}>                      
                       <div className="list-card">
                         <div className="list-img">                        

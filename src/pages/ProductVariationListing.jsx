@@ -36,7 +36,6 @@ export const ProductVariationListing = () => {
 
   return (
     <main className={`allProductMain ${series == 'aurum' ? 'background-dark' : 'background-light'}`}>      
-
       {
         !loadSimulate ?
         <Fragment>

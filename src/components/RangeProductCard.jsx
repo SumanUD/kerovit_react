@@ -53,8 +53,7 @@ export const RangeProductCard = ({item, series, product, variation, rangeId, ind
             to={`/collection/${series}/${product}/${variation}/${item.product_code}`}
             state={{ range:rangeId }}            
             className={loadedImg.includes(index+item.id) ? 'show-img':'hide'}
-        >
-            {console.log(rangeId)}
+        >            
             {activeImage && (
                 <img 
                     src={activeImage} 
