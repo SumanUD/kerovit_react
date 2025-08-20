@@ -144,7 +144,7 @@
       height: 100vh !important;
       .banner_content{
           margin: 0px 40px 0 40px;
-  
+          max-width: 30%;
         .banner_title{
           font-size: 27px !important;
 
@@ -164,7 +164,7 @@
   .warranty-form-container {
 
     .below-warranty-banner {
-    height: 200px !important;
+      height: 200px !important;
 
       .text {
         max-width: 400px !important;
