@@ -53,7 +53,7 @@ export default function HomeCategories({collectionSlide, homeData}){
   return (
     <div className="skeleton-load home_categories">    
 
-        <div className={`skeleton-show ${loading ? 'show' : 'hide'}`}>
+        {/* <div className={`skeleton-show ${loading ? 'show' : 'hide'}`}>
             <div className="loading-heading"></div>
             <div className="loading-line"></div>
             <div className="loading-line"></div>
@@ -62,9 +62,9 @@ export default function HomeCategories({collectionSlide, homeData}){
                 <div className="loading-image"></div>
                 <div className="loading-image"></div>                
             </div>
-        </div>
+        </div> */}
 
-        <div className={`section-contents ${loading ? '' : 'visible'}`}>
+        <div className={`section-contents ${'visible'}`}>
             <img src={categoryHeading} alt="" className="categories_heading" loading="lazy"/>
             <div dangerouslySetInnerHTML={{ __html: homeData?.categories_description }}/>
 

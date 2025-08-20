@@ -18,7 +18,6 @@ export const About = () => {
   const [swiperCertificateInstance, setSwiperCertificateInstance] = useState(null);
 
   const [readMoreOne, setReadMoreOne] = useState(false);
-  const [readMoreTwo, setReadMoreTwo] = useState(false);
 
   const [readMore, setReadMore] = useState('')
   const handleReadMore = (id) =>{

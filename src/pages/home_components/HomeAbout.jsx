@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 
 import AboutHeading from '../../../public/aboutus_heading.png';
 
-export default function HomeAbout({homeData}){
-
-  console.log(homeData)
+export default function HomeAbout({homeData}){  
 
   return (
     <>
