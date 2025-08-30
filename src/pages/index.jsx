@@ -1,5 +1,6 @@
 import { PopularPost } from './PopularPost';
 
+
 export {Home} from './Home';
 export {Categories} from './Categories';
 export {Collection} from './Collection';
@@ -17,3 +18,4 @@ export {PageNotFound} from './Errors/PageNotFound';
 export {CustomerCare} from './CustomerCare';
 export {Warranty} from './warranty';
 export {PopularPost} from './PopularPost';
+

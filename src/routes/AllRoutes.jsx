@@ -3,6 +3,8 @@ import {CustomerCare, Categories, Home, Collection, ProductListing, ProductVaria
   ProductSingle, LocateOurStore, About, Career, Blogs, LatestPost, Catelogue, PageNotFound,
   Warranty, BlogSingle, PopularPost} from '../pages/index';
 
+// import { PrivacyPolicys } from "../pages/PrivacyPolicy";
+
 export const AllRoutes = () => {
   return (
     <Routes>
@@ -18,6 +20,9 @@ export const AllRoutes = () => {
       <Route path="/about" element={<About/>}/>
       <Route path="/our-career" element={<Career/>}/>
       <Route path="/blog" element={<Blogs/>}/>
+
+      <Route path="/privacy-policy" element={<Career/>}/>
+
       <Route path="/blog/:blog" element={<BlogSingle/>}/>
       <Route path="/blog/latestPost" element={<LatestPost/>}/>
       <Route path="/blog/popularPost" element={<PopularPost/>}/>
