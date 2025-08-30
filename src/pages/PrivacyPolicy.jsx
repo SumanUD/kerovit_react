@@ -1,4 +1,4 @@
-export const PrivacyPolicys = () => {
+export const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy max-w-4xl mx-auto px-4 py-8 leading-relaxed text-gray-800">
       <h1 className="text-2xl font-bold mb-4">Privacy Policy</h1>
@@ -32,3 +32,4 @@ export const PrivacyPolicys = () => {
     </div>
   )
 }
+

@@ -1,9 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import {CustomerCare, Categories, Home, Collection, ProductListing, ProductVariationListing, 
   ProductSingle, LocateOurStore, About, Career, Blogs, LatestPost, Catelogue, PageNotFound,
-  Warranty, BlogSingle, PopularPost} from '../pages/index';
-
-// import { PrivacyPolicys } from "../pages/PrivacyPolicy";
+  Warranty, BlogSingle, PopularPost, PPolicy} from '../pages/index';
 
 export const AllRoutes = () => {
   return (
@@ -21,7 +19,7 @@ export const AllRoutes = () => {
       <Route path="/our-career" element={<Career/>}/>
       <Route path="/blog" element={<Blogs/>}/>
 
-      <Route path="/privacy-policy" element={<Career/>}/>
+      <Route path="/privacy-policy" element={<PPolicy/>}/>
 
       <Route path="/blog/:blog" element={<BlogSingle/>}/>
       <Route path="/blog/latestPost" element={<LatestPost/>}/>

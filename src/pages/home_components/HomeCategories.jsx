@@ -35,34 +35,8 @@ export default function HomeCategories({collectionSlide, homeData}){
         }
     }
 
-    const [loading, setLoading] = useState(true);
-    const [allImg, setAllImg] = useState([]);
-    const addLoadedImg = (index) =>{
-        setAllImg(prev => {
-            const newAllImg = [...prev, index];
-            checkAllImageLoad(newAllImg);
-            return newAllImg;
-        });        
-    }
-    const checkAllImageLoad = (newArr) =>{
-        if(newArr.length == 4){
-            setLoading(false)
-        }
-    }
-
   return (
     <div className="skeleton-load home_categories">    
-
-        {/* <div className={`skeleton-show ${loading ? 'show' : 'hide'}`}>
-            <div className="loading-heading"></div>
-            <div className="loading-line"></div>
-            <div className="loading-line"></div>
-            <div className="loading-image-grid">
-                <div className="loading-image"></div>
-                <div className="loading-image"></div>
-                <div className="loading-image"></div>                
-            </div>
-        </div> */}
 
         <div className={`section-contents ${'visible'}`}>
             <img src={categoryHeading} alt="" className="categories_heading" loading="lazy"/>
@@ -72,7 +46,7 @@ export default function HomeCategories({collectionSlide, homeData}){
                 <div className="category-option">            
                     {
                         Array.isArray(collectionSlide) && collectionSlide.map((item, index)=>(
-                            <div className={`option ${activeIndex === index ? 'category-active': ''}`} onClick={() => handleTextClick(index)} key={index}><img src= {item.icon} alt="catalogue" className="categoryNameIcon" loading="lazy"/>{item.name}</div>
+                            <div className={`option ${activeIndex === index ? 'category-active': ''}`} key={index}><img src= {item.icon} alt="catalogue" className="categoryNameIcon" loading="lazy"/>{item.name}</div>
                         ))
                     }
                 </div>
@@ -97,8 +71,7 @@ export default function HomeCategories({collectionSlide, homeData}){
                                     src={`${product.img}`} 
                                     alt={product.name} 
                                     height={600} width={400} 
-                                    loading="lazy" 
-                                    onLoad={()=>addLoadedImg(product.id)}
+                                    loading="lazy"                                     
                                 />
                             </Link>
                             <div className="background-layer"></div>
