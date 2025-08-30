@@ -103,9 +103,9 @@ export const Footer = () => {
                                         <li><a href="/our-career">Career</a></li>
                                         <li><a href="/blog">Blog</a></li>
                                        <li>
-                                        <a href="privacy-policy" target="_blank" rel="noopener noreferrer">
+                                        <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer">
                                             Privacy Policy
-                                        </a>
+                                        </Link>
                                         </li>
 
                                     </ul>
@@ -134,7 +134,7 @@ export const Footer = () => {
 
 
                     <div className="footer-links">
-                        <Link to="privacy-policy" className="footer-link">Privacy Policy</Link>
+                        <Link to="/privacy-policy" className="footer-link" target="_blank">Privacy Policy</Link>
                         <Link to="/sitemap" className="footer-link">Sitemap</Link>
                     </div>
                 </div>
@@ -163,9 +163,9 @@ export const Footer = () => {
                                     <li><a href="/our-career">Career</a></li>
                                     <li><a href="/blog">Blog</a></li>
                                       <li>
-                                        <a href="privacy-policy" target="_blank" rel="noopener noreferrer">
+                                        <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer">
                                             Privacy Policy
-                                        </a>
+                                        </Link>
                                         </li>
                                 </ul>
                             </div>
